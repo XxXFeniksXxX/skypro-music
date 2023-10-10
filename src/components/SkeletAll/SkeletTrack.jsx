@@ -1,23 +1,11 @@
+import '../TrackList/styles.css'
 import Searchblock from '../Searchblock/Searchblock'
-import './styles.css'
-import React, { useState, useEffect } from 'react'
-import Skelet from '../SkeletAll/SkeletTrack'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-function TrackList() {
-	const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 5000)
-    }, [])
-
-    if (loading) {
-		return(
-			<Skelet />
-		)
-	}
+function Skelet() {
 	return (
+		// _____________________________Треки_______________________________  
 		<div className="main__centerblock centerblock">
 			<Searchblock />
 			<h2 className="centerblock__h2">Треки</h2>
@@ -41,67 +29,61 @@ function TrackList() {
 					</div>
 				</div>
 				<div className="playlist__item">
-			<div className="playlist__track track">
-				<div className="track__title">
-					<div className="track__title-image">
-						<svg className="track__title-svg" alt="music">
-							<use xlinkHref="img/icon/sprite.svg#icon-note" />
-						</svg>
+					<div className="playlist__track track">
+						<div className="track__title">
+							<div className="track__title-image">
+								<Skeleton width={50} height={50} />
+							</div>
+							<div className="track__title-text">
+								<a className="track__title-link" href="http://">
+									<Skeleton width={330} height={20} />
+								</a>
+							</div>
+						</div>
+						<div className="track__author">
+							<a className="track__author-link" href="http://">
+								<Skeleton width={280} height={20} />
+							</a>
+						</div>
+						<div className="track__album">
+							<a className="track__album-link" href="http://">
+								<Skeleton width={290} height={20} />
+							</a>
+						</div>
+						<div className="track__time">
+							<svg className="track__time-svg" alt="time">
+								<use xlinkHref="img/icon/sprite.svg#icon-like" />
+							</svg>
+						</div>
 					</div>
-					<div className="track__title-text">
-						<a className="track__title-link" href="http://">
-							Guilt <span className="track__title-span" />
-						</a>
-					</div>
 				</div>
-				<div className="track__author">
-					<a className="track__author-link" href="http://">
-						Nero
-					</a>
-				</div>
-				<div className="track__album">
-					<a className="track__album-link" href="http://">
-						Welcome Reality
-					</a>
-				</div>
-				<div className="track__time">
-					<svg className="track__time-svg" alt="time">
-						<use xlinkHref="img/icon/sprite.svg#icon-like" />
-					</svg>
-					<span className="track__time-text">4:44</span>
-				</div>
-			</div>
-		</div>
 				<div className="content__playlist playlist">
 					<div className="playlist__item">
 						<div className="playlist__track track">
 							<div className="track__title">
 								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
+									<Skeleton width={50} height={50} />
 								</div>
 								<div className="track__title-text">
 									<a className="track__title-link" href="http://">
-										Elektro <span className="track__title-span" />
+										<Skeleton width={330} height={20} /> <span className="track__title-span" />
 									</a>
 								</div>
 							</div>
 							<div className="track__author">
 								<a className="track__author-link" href="http://">
-									Dynoro, Outwork, Mr. Gee
+									<Skeleton width={280} height={20} />
 								</a>
 							</div>
 							<div className="track__album">
 								<a className="track__album-link" href="http://">
-									Elektro
+									<Skeleton width={290} height={20} />
 								</a>
 							</div>
 							<div className="track__time">
 								<svg className="track__time-svg" alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
 								</svg>
-								<span className="track__time-text">2:22</span>
 							</div>
 						</div>
 					</div>
@@ -110,31 +92,28 @@ function TrackList() {
 						<div className="playlist__track track">
 							<div className="track__title">
 								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
+									<Skeleton width={50} height={50} />
 								</div>
 								<div className="track__title-text">
 									<a className="track__title-link" href="http://">
-										I’m Fire <span className="track__title-span" />
+										<Skeleton width={330} height={20} /> <span className="track__title-span" />
 									</a>
 								</div>
 							</div>
 							<div className="track__author">
 								<a className="track__author-link" href="http://">
-									Ali Bakgor
+									<Skeleton width={280} height={20} />
 								</a>
 							</div>
 							<div className="track__album">
 								<a className="track__album-link" href="http://">
-									I’m Fire
+									<Skeleton width={290} height={20} />
 								</a>
 							</div>
 							<div className="track__time">
 								<svg className="track__time-svg" alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
 								</svg>
-								<span className="track__time-text">2:22</span>
 							</div>
 						</div>
 					</div>
@@ -143,32 +122,28 @@ function TrackList() {
 						<div className="playlist__track track">
 							<div className="track__title">
 								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
+									<Skeleton width={50} height={50} />
 								</div>
 								<div className="track__title-text">
 									<a className="track__title-link" href="http://">
-										Non Stop
-										<span className="track__title-span">(Remix)</span>
+										<Skeleton width={330} height={20} />
 									</a>
 								</div>
 							</div>
 							<div className="track__author">
 								<a className="track__author-link" href="http://">
-									Стоункат, Psychopath
+									<Skeleton width={280} height={20} />
 								</a>
 							</div>
 							<div className="track__album">
 								<a className="track__album-link" href="http://">
-									Non Stop
+									<Skeleton width={290} height={20} />
 								</a>
 							</div>
 							<div className="track__time">
 								<svg className="track__time-svg" alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
 								</svg>
-								<span className="track__time-text">4:12</span>
 							</div>
 						</div>
 					</div>
@@ -177,32 +152,28 @@ function TrackList() {
 						<div className="playlist__track track">
 							<div className="track__title">
 								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
+									<Skeleton width={50} height={50} />
 								</div>
 								<div className="track__title-text">
 									<a className="track__title-link" href="http://">
-										Run Run
-										<span className="track__title-span">(feat. AR/CO)</span>
+										<Skeleton width={330} height={20} />
 									</a>
 								</div>
 							</div>
 							<div className="track__author">
 								<a className="track__author-link" href="http://">
-									Jaded, Will Clarke, AR/CO
+									<Skeleton width={280} height={20} />
 								</a>
 							</div>
 							<div className="track__album">
 								<a className="track__album-link" href="http://">
-									Run Run
+									<Skeleton width={290} height={20} />
 								</a>
 							</div>
 							<div className="track__time">
 								<svg className="track__time-svg" alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
 								</svg>
-								<span className="track__time-text">2:54</span>
 							</div>
 						</div>
 					</div>
@@ -211,32 +182,28 @@ function TrackList() {
 						<div className="playlist__track track">
 							<div className="track__title">
 								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
+									<Skeleton width={50} height={50} />
 								</div>
 								<div className="track__title-text">
 									<a className="track__title-link" href="http://">
-										Eyes on Fire
-										<span className="track__title-span">(Zeds Dead Remix)</span>
+										<Skeleton width={330} height={20} />
 									</a>
 								</div>
 							</div>
 							<div className="track__author">
 								<a className="track__author-link" href="http://">
-									Blue Foundation, Zeds Dead
+									<Skeleton width={280} height={20} />
 								</a>
 							</div>
 							<div className="track__album">
 								<a className="track__album-link" href="http://">
-									Eyes on Fire
+									<Skeleton width={290} height={20} />
 								</a>
 							</div>
 							<div className="track__time">
 								<svg className="track__time-svg" alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
 								</svg>
-								<span className="track__time-text">5:20</span>
 							</div>
 						</div>
 					</div>
@@ -245,34 +212,28 @@ function TrackList() {
 						<div className="playlist__track track">
 							<div className="track__title">
 								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
+									<Skeleton width={50} height={50} />
 								</div>
 								<div className="track__title-text">
 									<a className="track__title-link" href="http://">
-										Mucho Bien
-										<span className="track__title-span">
-											(Hi Profile Remix)
-										</span>
+										<Skeleton width={330} height={20} />
 									</a>
 								</div>
 							</div>
 							<div className="track__author">
 								<a className="track__author-link" href="http://">
-									HYBIT, Mr. Black, Offer Nissim, Hi Profile
+									<Skeleton width={280} height={20} />
 								</a>
 							</div>
 							<div className="track__album">
 								<a className="track__album-link" href="http://">
-									Mucho Bien
+									<Skeleton width={290} height={20} />
 								</a>
 							</div>
 							<div className="track__time">
 								<svg className="track__time-svg" alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
 								</svg>
-								<span className="track__time-text">3:41</span>
 							</div>
 						</div>
 					</div>
@@ -281,32 +242,29 @@ function TrackList() {
 						<div className="playlist__track track">
 							<div className="track__title">
 								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
+									<Skeleton width={50} height={50} />
 								</div>
 								<div className="track__title-text">
 									<a className="track__title-link" href="http://">
-										Knives n Cherries
+										<Skeleton width={330} height={20} />
 										<span className="track__title-span" />
 									</a>
 								</div>
 							</div>
 							<div className="track__author">
 								<a className="track__author-link" href="http://">
-									minthaze
+									<Skeleton width={280} height={20} />
 								</a>
 							</div>
 							<div className="track__album">
 								<a className="track__album-link" href="http://">
-									Captivating
+									<Skeleton width={290} height={20} />
 								</a>
 							</div>
 							<div className="track__time">
 								<svg className="track__time-svg" alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
 								</svg>
-								<span className="track__time-text">1:48</span>
 							</div>
 						</div>
 					</div>
@@ -315,5 +273,4 @@ function TrackList() {
 		</div>
 	)
 }
-
-export default TrackList
+export default Skelet
