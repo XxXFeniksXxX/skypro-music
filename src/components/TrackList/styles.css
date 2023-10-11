@@ -1,3 +1,7 @@
+.active{
+	color: #B672FF;
+	border-color: #B672FF;
+}
 .main__centerblock {
 	width: auto;
 	-webkit-box-flex: 3;
@@ -56,7 +60,6 @@
 	border-radius: 60px;
 	padding: 6px 20px;
 }
-
 .filter__button:not(:last-child) {
 	margin-right: 10px;
 }

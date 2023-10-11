@@ -2,7 +2,7 @@ import './styles.css'
 import SkeletIcon from '../SkeletAll/SkeletIcon'
 import React, { useState, useEffect } from 'react'
 
-export function SideBar() {
+function SideBar() {
 	const [loading, setLoading] = useState(true)
 
     useEffect(() => {
