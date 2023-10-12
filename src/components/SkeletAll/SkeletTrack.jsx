@@ -18,6 +18,7 @@ function Skelet() {
 				<div className="filter__button button-genre _btn-text">жанру</div>
 			</div>
 			<div className="centerblock__content">
+			<SkeletonTheme baseColor='#474747' highlightColor='#313131'>
 				<div className="content__title playlist-title">
 					<div className="playlist-title__col col01">Трек</div>
 					<div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
@@ -269,6 +270,7 @@ function Skelet() {
 						</div>
 					</div>
 				</div>
+				</SkeletonTheme>
 			</div>
 		</div>
 	)

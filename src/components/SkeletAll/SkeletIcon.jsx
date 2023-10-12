@@ -1,9 +1,10 @@
-import '../SideBar/styles.css'
+import '../TrackList/styles.css'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 function SkeletIcon() {
     return (
+        <SkeletonTheme baseColor='#474747' highlightColor='#313131'>
         <div className="main__sidebar sidebar">
             <div className="sidebar__personal">
                 <p className="sidebar__personal-name">Sergey.Ivanov</p>
@@ -33,6 +34,7 @@ function SkeletIcon() {
                 </div>
             </div>
         </div>
+        </SkeletonTheme>
     )
 }
 export default SkeletIcon

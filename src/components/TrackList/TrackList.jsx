@@ -9,26 +9,36 @@ function TrackList() {
 	const [visibleExecutor, setVisibleExecutor] = useState(false);
 	const [visibleYear, setVisibleYear] = useState(false);
 	const [visibleGenre, setVisibleGenre] = useState(false);
+	const [isActiveExecutor, setActiveExecutor] = useState(false);
+	const [isActiveYear, setActiveYear] = useState(false);
+	const [isActiveGenre, setActiveGenre] = useState(false);
 	const menuExecutorClick = () => {
 		setVisibleGenre(false);
 		setVisibleYear(false);
 		setVisibleExecutor(!visibleExecutor);
+
+		setActiveExecutor(!isActiveExecutor);
+		setActiveYear(false);
+		setActiveGenre(false);
 	}
 	const menyYearClick = () => {
-		const el = document.getElementById('Year');
-		if (el.classList == 'active') {
-			setVisibleGenre(false);
-			setVisibleExecutor(false);
-			el.classList.remove('active');
-		} else {
-			el.classList.add('active');
-			setVisibleYear(!visibleYear);
-		}
+		setVisibleGenre(false);
+		setVisibleExecutor(false);
+		setVisibleYear(!visibleYear);
+
+		setActiveYear(!isActiveYear);
+		setActiveExecutor(false);
+		setActiveGenre(false);
 	}
 	const menyGenreClick = () => {
 		setVisibleExecutor(false);
 		setVisibleYear(false);
 		setVisibleGenre(!visibleGenre);
+
+		setActiveGenre(!isActiveGenre);
+		setActiveYear(false);
+		setActiveExecutor(false);
+
 	}
 	useEffect(() => {
 		setTimeout(() => {
@@ -48,24 +58,32 @@ function TrackList() {
 			<h2 className="centerblock__h2">Треки</h2>
 			<div className="centerblock__filter filter">
 				<div className="filter__title">Искать по:</div>
-				<div className="filter__button button-author _btn-text" onClick={menuExecutorClick}>
-					исполнителю
+				<div>
+					<div className={`filter__button button-author _btn-text ${isActiveExecutor ? "active" : ""}`} onClick={menuExecutorClick}>
+						исполнителю
+					</div>
+					{visibleExecutor && <div>
+						<FiltrExecutor />
+					</div>
+					}
 				</div>
-				<div className="filter__button button-year _btn-text" id='Year' onClick={menyYearClick}>году выпуска</div>
-				<div className="filter__button button-genre _btn-text" onClick={menyGenreClick}>жанру</div>
+				<div>
+					<div className={`filter__button button-year _btn-text ${isActiveYear ? "active" : ""}`} id='Year' onClick={menyYearClick}>году выпуска</div>
+					{visibleYear && <div>
+						<FiltrYear />
+					</div>
+					}
+				</div>
+				<div>
+					<div className={`filter__button button-genre _btn-text ${isActiveGenre ? "active" : ""}`} onClick={menyGenreClick}> жанру</div>
+					{visibleGenre && <div>
+						<FilterGenre />
+					</div>
+					}
+				</div>
 			</div>
-			{visibleExecutor && <div>
-				<FiltrExecutor />
-			</div>
-			}
-			{visibleYear && <div>
-				<FiltrYear />
-			</div>
-			}
-			{visibleGenre && <div>
-				<FilterGenre />
-			</div>
-			}
+
+
 			<div className="centerblock__content">
 				<div className="content__title playlist-title">
 					<div className="playlist-title__col col01">Трек</div>

@@ -1,4 +1,4 @@
-import '../AudioPlayer/styles.css'
+import '../TrackList/styles.css'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -36,7 +36,7 @@ function SkeletAudioPlayer() {
                                 </svg>
                             </div>
                         </div>
-
+                        <SkeletonTheme baseColor='#474747' highlightColor='#313131'>
                         <div className="player__track-play track-play">
                             <div className="track-play__contain">
                                 <div className="track-play__image">
@@ -67,6 +67,7 @@ function SkeletAudioPlayer() {
                                 </div>
                             </div>
                         </div>
+                        </SkeletonTheme>
                     </div>
                     <div className="bar__volume-block volume">
                         <div className="volume__content">
