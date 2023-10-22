@@ -1,8 +1,8 @@
-import './styles.css'
-import SkeletIcon from '../SkeletAll/SkeletIcon'
+import { SkeletIcon } from '../SkeletAll/SkeletIcon'
 import React, { useState, useEffect } from 'react'
+import * as S from './styles.js'
 
-function SideBar() {
+export function SideBar() {
 	const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -17,17 +17,17 @@ function SideBar() {
 		)
 	}
 	return (
-		<div className="main__sidebar sidebar">
-			<div className="sidebar__personal">
-				<p className="sidebar__personal-name">Sergey.Ivanov</p>
-				<div className="sidebar__icon">
-					<svg alt="logout">
+		<S.MainSidebar className="sidebar">
+			<S.SidebarPersonal>
+				<S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
+				<S.SidebarIcon>
+					<S.SidebarIconSvg alt="logout">
 						<use xlinkHref="img/icon/sprite.svg#logout" />
-					</svg>
-				</div>
-			</div>
-			<div className="sidebar__block">
-				<div className="sidebar__list">
+					</S.SidebarIconSvg>
+				</S.SidebarIcon>
+			</S.SidebarPersonal>
+			<S.SidebarBlock>
+				<S.SidebarList>
 					<div className="sidebar__item">
 						<a className="sidebar__link" href="index.html">
 							<img
@@ -55,10 +55,8 @@ function SideBar() {
 							/>
 						</a>
 					</div>
-				</div>
-			</div>
-		</div>
+				</S.SidebarList>
+			</S.SidebarBlock>
+		</S.MainSidebar>
 	)
 }
-
-export default SideBar

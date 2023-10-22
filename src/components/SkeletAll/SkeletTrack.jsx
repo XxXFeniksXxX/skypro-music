@@ -1,278 +1,259 @@
-import '../TrackList/styles.css'
-import Searchblock from '../Searchblock/Searchblock'
+import * as S from '../TrackList/styles.js';
+import { Searchblock } from '../Searchblock/Searchblock'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-function Skelet() {
+export function Skelet() {
 	return (
-		// _____________________________Треки_______________________________  
-		<div className="main__centerblock centerblock">
-			<Searchblock />
-			<h2 className="centerblock__h2">Треки</h2>
-			<div className="centerblock__filter filter">
-				<div className="filter__title">Искать по:</div>
-				<div className="filter__button button-author _btn-text">
-					исполнителю
-				</div>
-				<div className="filter__button button-year _btn-text">году выпуска</div>
-				<div className="filter__button button-genre _btn-text">жанру</div>
-			</div>
-			<div className="centerblock__content">
-			<SkeletonTheme baseColor='#474747' highlightColor='#313131'>
-				<div className="content__title playlist-title">
-					<div className="playlist-title__col col01">Трек</div>
-					<div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-					<div className="playlist-title__col col03">АЛЬБОМ</div>
-					<div className="playlist-title__col col04">
-						<svg className="playlist-title__svg" alt="time">
-							<use xlinkHref="./img/icon/sprite.svg#icon-watch" />
-						</svg>
+		<SkeletonTheme baseColor='#474747' highlightColor='#313131'>
+			<S.MainCenterblock className="centerblock">
+				<Searchblock />
+				<S.CenterblockH2>Треки</S.CenterblockH2>
+				<S.CenterblockFilter className="filter">
+					<S.FilterTitle>Искать по:</S.FilterTitle>
+					<div>
+						<S.FilterButton className="button-author _btn-text">
+							исполнителю
+						</S.FilterButton>
 					</div>
-				</div>
-				<div className="playlist__item">
-					<div className="playlist__track track">
-						<div className="track__title">
-							<div className="track__title-image">
-								<Skeleton width={50} height={50} />
-							</div>
-							<div className="track__title-text">
-								<a className="track__title-link" href="http://">
-									<Skeleton width={330} height={20} />
-								</a>
-							</div>
-						</div>
-						<div className="track__author">
-							<a className="track__author-link" href="http://">
-								<Skeleton width={280} height={20} />
-							</a>
-						</div>
-						<div className="track__album">
-							<a className="track__album-link" href="http://">
-								<Skeleton width={290} height={20} />
-							</a>
-						</div>
-						<div className="track__time">
-							<svg className="track__time-svg" alt="time">
-								<use xlinkHref="img/icon/sprite.svg#icon-like" />
-							</svg>
-						</div>
+					<div>
+						<S.FilterButton className="button-year _btn-text">году выпуска
+						</S.FilterButton>
 					</div>
-				</div>
-				<div className="content__playlist playlist">
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
+					<div>
+						<S.FilterButton className="button-genre _btn-text"> жанру
+						</S.FilterButton>
+					</div>
+				</S.CenterblockFilter>
+				<S.CenterblockContent>
+					<S.ContentTitle className="playlist-title">
+						<S.PlaylistTitleCol01 className="col01">Трек</S.PlaylistTitleCol01>
+						<S.PlaylistTitleCol02 className="col02">ИСПОЛНИТЕЛЬ</S.PlaylistTitleCol02>
+						<S.PlaylistTitleCol03 className="col03">АЛЬБОМ</S.PlaylistTitleCol03>
+						<S.PlaylistTitleCol04 className="col04">
+							<S.PlaylistTitleSvg alt="time">
+								<use xlinkHref="./img/icon/sprite.svg#icon-watch" />
+							</S.PlaylistTitleSvg>
+						</S.PlaylistTitleCol04>
+					</S.ContentTitle>
+					<S.PlaylistItem>
+						<S.PlaylistTrack className="track">
+							<S.TrackTitle>
+								<S.TrackTitleImage>
 									<Skeleton width={50} height={50} />
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
-										<Skeleton width={330} height={20} /> <span className="track__title-span" />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
-									<Skeleton width={280} height={20} />
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
-									<Skeleton width={290} height={20} />
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-							</div>
-						</div>
-					</div>
-
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<Skeleton width={50} height={50} />
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
-										<Skeleton width={330} height={20} /> <span className="track__title-span" />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
-									<Skeleton width={280} height={20} />
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
-									<Skeleton width={290} height={20} />
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-							</div>
-						</div>
-					</div>
-
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<Skeleton width={50} height={50} />
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
+								</S.TrackTitleImage>
+								<S.TrackTitleText>
+									<S.TrackTitleLink href="http://">
 										<Skeleton width={330} height={20} />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+									</S.TrackTitleLink>
+								</S.TrackTitleText>
+							</S.TrackTitle>
+							<S.TrackAuthor>
+								<S.TrackAuthorLink href="http://">
 									<Skeleton width={280} height={20} />
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+								</S.TrackAuthorLink>
+							</S.TrackAuthor>
+							<S.TrackAlbum>
+								<S.TrackAlbumLink href="http://">
 									<Skeleton width={290} height={20} />
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-							</div>
-						</div>
-					</div>
+								</S.TrackAlbumLink>
+							</S.TrackAlbum>
+							<S.TratrackTime>
+							</S.TratrackTime>
+						</S.PlaylistTrack>
+					</S.PlaylistItem>
+					<S.ContentPlaylist>
+						<S.PlaylistItem>
+							<S.PlaylistTrack className="track">
+								<S.TrackTitle>
+									<S.TrackTitleImage>
+										<Skeleton width={50} height={50} />
+									</S.TrackTitleImage>
+									<S.TrackTitleText>
+										<S.TrackTitleLink href="http://">
+										<Skeleton width={330} height={20} /> <S.TrackTitleSpan />
+										</S.TrackTitleLink>
+									</S.TrackTitleText>
+								</S.TrackTitle>
+								<S.TrackAuthor>
+									<S.TrackAuthorLink href="http://">
+									<Skeleton width={280} height={20} />
+									</S.TrackAuthorLink>
+								</S.TrackAuthor>
+								<S.TrackAlbum>
+									<S.TrackAlbumLink href="http://">
+									<Skeleton width={290} height={20} />
+									</S.TrackAlbumLink>
+								</S.TrackAlbum>
+								<S.TratrackTime>
+								</S.TratrackTime>
+							</S.PlaylistTrack>
+						</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<Skeleton width={50} height={50} />
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
-										<Skeleton width={330} height={20} />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+						<S.PlaylistItem>
+							<S.PlaylistTrack className="track">
+								<S.TrackTitle>
+									<S.TrackTitleImage>
+										<Skeleton width={50} height={50} />
+									</S.TrackTitleImage>
+									<S.TrackTitleText>
+										<S.TrackTitleLink href="http://">
+										<Skeleton width={330} height={20} /> <S.TrackTitleSpan />
+										</S.TrackTitleLink>
+									</S.TrackTitleText>
+								</S.TrackTitle>
+								<S.TrackAuthor>
+									<S.TrackAuthorLink href="http://">
 									<Skeleton width={280} height={20} />
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+									</S.TrackAuthorLink>
+								</S.TrackAuthor>
+								<S.TrackAlbum>
+									<S.TrackAlbumLink href="http://">
 									<Skeleton width={290} height={20} />
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-							</div>
-						</div>
-					</div>
+									</S.TrackAlbumLink>
+								</S.TrackAlbum>
+								<S.TratrackTime>
+								</S.TratrackTime>
+							</S.PlaylistTrack>
+						</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<Skeleton width={50} height={50} />
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
-										<Skeleton width={330} height={20} />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+						<S.PlaylistItem>
+							<S.PlaylistTrack className="track">
+								<S.TrackTitle>
+									<S.TrackTitleImage>
+										<Skeleton width={50} height={50} />
+									</S.TrackTitleImage>
+									<S.TrackTitleText>
+										<S.TrackTitleLink href="http://">
+										<Skeleton width={330} height={20} /> <S.TrackTitleSpan />
+										</S.TrackTitleLink>
+									</S.TrackTitleText>
+								</S.TrackTitle>
+								<S.TrackAuthor>
+									<S.TrackAuthorLink href="http://">
 									<Skeleton width={280} height={20} />
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+									</S.TrackAuthorLink>
+								</S.TrackAuthor>
+								<S.TrackAlbum>
+									<S.TrackAlbumLink href="http://">
 									<Skeleton width={290} height={20} />
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-							</div>
-						</div>
-					</div>
+									</S.TrackAlbumLink>
+								</S.TrackAlbum>
+								<S.TratrackTime>
+								</S.TratrackTime>
+							</S.PlaylistTrack>
+						</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<Skeleton width={50} height={50} />
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
-										<Skeleton width={330} height={20} />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+						<S.PlaylistItem>
+							<S.PlaylistTrack className="track">
+								<S.TrackTitle>
+									<S.TrackTitleImage>
+										<Skeleton width={50} height={50} />
+									</S.TrackTitleImage>
+									<S.TrackTitleText>
+										<S.TrackTitleLink href="http://">
+										<Skeleton width={330} height={20} /> <S.TrackTitleSpan />
+										</S.TrackTitleLink>
+									</S.TrackTitleText>
+								</S.TrackTitle>
+								<S.TrackAuthor>
+									<S.TrackAuthorLink href="http://">
 									<Skeleton width={280} height={20} />
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+									</S.TrackAuthorLink>
+								</S.TrackAuthor>
+								<S.TrackAlbum>
+									<S.TrackAlbumLink href="http://">
 									<Skeleton width={290} height={20} />
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-							</div>
-						</div>
-					</div>
+									</S.TrackAlbumLink>
+								</S.TrackAlbum>
+								<S.TratrackTime>
+								</S.TratrackTime>
+							</S.PlaylistTrack>
+						</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<Skeleton width={50} height={50} />
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
-										<Skeleton width={330} height={20} />
-										<span className="track__title-span" />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+						<S.PlaylistItem>
+							<S.PlaylistTrack className="track">
+								<S.TrackTitle>
+									<S.TrackTitleImage>
+										<Skeleton width={50} height={50} />
+									</S.TrackTitleImage>
+									<S.TrackTitleText>
+										<S.TrackTitleLink href="http://">
+										<Skeleton width={330} height={20} /> <S.TrackTitleSpan />
+										</S.TrackTitleLink>
+									</S.TrackTitleText>
+								</S.TrackTitle>
+								<S.TrackAuthor>
+									<S.TrackAuthorLink href="http://">
 									<Skeleton width={280} height={20} />
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+									</S.TrackAuthorLink>
+								</S.TrackAuthor>
+								<S.TrackAlbum>
+									<S.TrackAlbumLink href="http://">
 									<Skeleton width={290} height={20} />
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-							</div>
-						</div>
-					</div>
-				</div>
-				</SkeletonTheme>
-			</div>
-		</div>
+									</S.TrackAlbumLink>
+								</S.TrackAlbum>
+								<S.TratrackTime>
+								</S.TratrackTime>
+							</S.PlaylistTrack>
+						</S.PlaylistItem>
+
+						<S.PlaylistItem>
+							<S.PlaylistTrack className="track">
+								<S.TrackTitle>
+									<S.TrackTitleImage>
+										<Skeleton width={50} height={50} />
+									</S.TrackTitleImage>
+									<S.TrackTitleText>
+										<S.TrackTitleLink href="http://">
+										<Skeleton width={330} height={20} /> <S.TrackTitleSpan />
+										</S.TrackTitleLink>
+									</S.TrackTitleText>
+								</S.TrackTitle>
+								<S.TrackAuthor>
+									<S.TrackAuthorLink href="http://">
+									<Skeleton width={280} height={20} />
+									</S.TrackAuthorLink>
+								</S.TrackAuthor>
+								<S.TrackAlbum>
+									<S.TrackAlbumLink href="http://">
+									<Skeleton width={290} height={20} />
+									</S.TrackAlbumLink>
+								</S.TrackAlbum>
+								<S.TratrackTime>
+								</S.TratrackTime>
+							</S.PlaylistTrack>
+						</S.PlaylistItem>
+
+						<S.PlaylistItem>
+							<S.PlaylistTrack className="track">
+								<S.TrackTitle>
+									<S.TrackTitleImage>
+										<Skeleton width={50} height={50} />
+									</S.TrackTitleImage>
+									<S.TrackTitleText>
+										<S.TrackTitleLink href="http://">
+										<Skeleton width={330} height={20} /> <S.TrackTitleSpan />
+										</S.TrackTitleLink>
+									</S.TrackTitleText>
+								</S.TrackTitle>
+								<S.TrackAuthor>
+									<S.TrackAuthorLink href="http://">
+									<Skeleton width={280} height={20} />
+									</S.TrackAuthorLink>
+								</S.TrackAuthor>
+								<S.TrackAlbum>
+									<S.TrackAlbumLink href="http://">
+									<Skeleton width={290} height={20} />
+									</S.TrackAlbumLink>
+								</S.TrackAlbum>
+								<S.TratrackTime>
+								</S.TratrackTime>
+							</S.PlaylistTrack>
+						</S.PlaylistItem>
+					</S.ContentPlaylist>
+				</S.CenterblockContent>
+			</S.MainCenterblock>
+		</SkeletonTheme>
 	)
 }
-export default Skelet

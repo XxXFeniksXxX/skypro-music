@@ -1,39 +1,38 @@
-import './styles.css'
+import * as S from './styles.js'
 
 export function FiltrExecutor() {
     return (
-        <div className='executorFilter'>
-            <a className='Executor_text' href="#">Nero</a>
-            <a className='Executor_text' href="#">Dynoro, Outwork, Mr. Gee</a>
-            <a className='Executor_text' href="#">Ali Bakgor</a>
-            <a className='Executor_text' href="#">Стоункат, Psychopath</a>
-            <a className='Executor_text' href="#">Jaded, Will Clarke, AR/CO</a>
-            <a className='Executor_text' href="#">Blue Foundation, Zeds Dead</a>
-            <a className='Executor_text' href="#">HYBIT, Mr. Black, Offer Nissim, Hi Profile</a>
-            <a className='Executor_text' href="#">minthaze</a>
-        </div>
+        <S.ExecutorFilter>
+            <S.ExecutorText href="#">Nero</S.ExecutorText>
+            <S.ExecutorText href="#">Dynoro, Outwork, Mr. Gee</S.ExecutorText>
+            <S.ExecutorText href="#">Ali Bakgor</S.ExecutorText>
+            <S.ExecutorText href="#">Стоункат, Psychopath</S.ExecutorText>
+            <S.ExecutorText href="#">Blue Foundation, Zeds Dead</S.ExecutorText>
+            <S.ExecutorText href="#">HYBIT, Mr. Black, Offer Nissim, Hi Profile</S.ExecutorText>
+            <S.ExecutorText href="#">minthaze</S.ExecutorText>
+            <S.ExecutorText href="#">Jaded, Will Clarke, AR/CO</S.ExecutorText>
+        </S.ExecutorFilter>
     )
 }
 
 export function FiltrYear() {
     return (
-        <div className='yearFilter'>
-            <a className='Executor_text' href="#">2002</a>
-            <a className='Executor_text' href="#">2003</a>
-            <a className='Executor_text' href="#">2004</a>
-        </div>
-
+        <S.YearFilter>
+            <S.ExecutorText href="#">2002</S.ExecutorText>
+            <S.ExecutorText href="#">2003</S.ExecutorText>
+            <S.ExecutorText href="#">2004</S.ExecutorText>
+        </S.YearFilter>
     )
 }
 
 export function FilterGenre() {
     return (
-        <div className='genryFilter'>
-            <a className='Executor_text' href="#">Рок</a>
-            <a className='Executor_text' href="#">Хип-хоп</a>
-            <a className='Executor_text' href="#">Поп-музыка</a>
-            <a className='Executor_text' href="#">Техно</a>
-            <a className='Executor_text' href="#">Инди</a>
-        </div>
+        <S.GenryFilter>
+            <S.ExecutorText href="#">Рок</S.ExecutorText>
+            <S.ExecutorText href="#">Хип-хоп</S.ExecutorText>
+            <S.ExecutorText href="#">Поп-музыка</S.ExecutorText>
+            <S.ExecutorText href="#">Техно</S.ExecutorText>
+            <S.ExecutorText href="#">Инди</S.ExecutorText>
+        </S.GenryFilter>
     )
 }
