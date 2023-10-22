@@ -1,6 +1,21 @@
 import './styles.css'
+import SkeletAudioPlayer from '../SkeletAll/SkeletAudioPlayer'
+import React, { useState, useEffect } from 'react'
 
 function AudioPlayer() {
+	const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 5000)
+    }, [])
+
+    if (loading) {
+		return(
+			<SkeletAudioPlayer />
+		)
+	}
 	return (
 		<div className="bar">
 			<div className="bar__content">

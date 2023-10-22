@@ -1,7 +1,6 @@
-// import logo from './logo.svg';
 import './App.css';
-import Nav from './components/Nav/Nav';
 import TrackList from './components/TrackList/TrackList';
+import Nav from './components/Nav/Nav';
 import SideBar from './components/SideBar/SideBar';
 import AudioPlayer from './components/AudioPlayer/AudioPlayer';
 
