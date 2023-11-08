@@ -1,10 +1,11 @@
-import Searchblock from '../Searchblock/Searchblock'
-import './styles.css'
+import { Searchblock } from '../Searchblock/Searchblock';
+import * as S from './styles.js';
+import './styles.css';
 import React, { useState, useEffect } from 'react'
-import Skelet from '../SkeletAll/SkeletTrack'
+import { Skelet } from '../SkeletAll/SkeletTrack'
 import { FiltrExecutor, FiltrYear, FilterGenre } from '../Filtr/Filtr'
 
-function TrackList() {
+export function TrackList() {
 	const [loading, setLoading] = useState(true)
 	const [visibleExecutor, setVisibleExecutor] = useState(false);
 	const [visibleYear, setVisibleYear] = useState(false);
@@ -53,321 +54,322 @@ function TrackList() {
 	}
 
 	return (
-		<div className="main__centerblock centerblock">
+		<S.MainCenterblock className="centerblock">
 			<Searchblock />
-			<h2 className="centerblock__h2">Треки</h2>
-			<div className="centerblock__filter filter">
-				<div className="filter__title">Искать по:</div>
+			<S.CenterblockH2>Треки</S.CenterblockH2>
+			<S.CenterblockFilter className="filter">
+				<S.FilterTitle>Искать по:</S.FilterTitle>
 				<div>
-					<div className={`filter__button button-author _btn-text ${isActiveExecutor ? "active" : ""}`} onClick={menuExecutorClick}>
+					<S.FilterButton className={`button-author _btn-text ${isActiveExecutor ? "active" : ""}`} onClick={menuExecutorClick}>
 						исполнителю
-					</div>
+					</S.FilterButton>
 					{visibleExecutor && <div>
 						<FiltrExecutor />
 					</div>
 					}
 				</div>
 				<div>
-					<div className={`filter__button button-year _btn-text ${isActiveYear ? "active" : ""}`} id='Year' onClick={menyYearClick}>году выпуска</div>
+					<S.FilterButton className={`button-year _btn-text ${isActiveYear ? "active" : ""}`} id='Year' onClick={menyYearClick}>году выпуска
+					</S.FilterButton>
 					{visibleYear && <div>
 						<FiltrYear />
 					</div>
 					}
 				</div>
 				<div>
-					<div className={`filter__button button-genre _btn-text ${isActiveGenre ? "active" : ""}`} onClick={menyGenreClick}> жанру</div>
+					<S.FilterButton className={`button-genre _btn-text ${isActiveGenre ? "active" : ""}`} onClick={menyGenreClick}> жанру
+					</S.FilterButton>
 					{visibleGenre && <div>
 						<FilterGenre />
 					</div>
 					}
 				</div>
-			</div>
+			</S.CenterblockFilter>
 
 
-			<div className="centerblock__content">
-				<div className="content__title playlist-title">
-					<div className="playlist-title__col col01">Трек</div>
-					<div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-					<div className="playlist-title__col col03">АЛЬБОМ</div>
-					<div className="playlist-title__col col04">
-						<svg className="playlist-title__svg" alt="time">
+			<S.CenterblockContent>
+				<S.ContentTitle className="playlist-title">
+					<S.PlaylistTitleCol01 className="col01">Трек</S.PlaylistTitleCol01>
+					<S.PlaylistTitleCol02 className="col02">ИСПОЛНИТЕЛЬ</S.PlaylistTitleCol02>
+					<S.PlaylistTitleCol03 className="col03">АЛЬБОМ</S.PlaylistTitleCol03>
+					<S.PlaylistTitleCol04 className="col04">
+						<S.PlaylistTitleSvg alt="time">
 							<use xlinkHref="./img/icon/sprite.svg#icon-watch" />
-						</svg>
-					</div>
-				</div>
-				<div className="playlist__item">
-					<div className="playlist__track track">
-						<div className="track__title">
-							<div className="track__title-image">
-								<svg className="track__title-svg" alt="music">
+						</S.PlaylistTitleSvg>
+					</S.PlaylistTitleCol04>
+				</S.ContentTitle>
+				<S.PlaylistItem>
+					<S.PlaylistTrack className="track">
+						<S.TrackTitle>
+							<S.TrackTitleImage>
+								<S.TrackTitleSvg alt="music">
 									<use xlinkHref="img/icon/sprite.svg#icon-note" />
-								</svg>
-							</div>
-							<div className="track__title-text">
-								<a className="track__title-link" href="http://">
-									Guilt <span className="track__title-span" />
-								</a>
-							</div>
-						</div>
-						<div className="track__author">
-							<a className="track__author-link" href="http://">
+								</S.TrackTitleSvg>
+							</S.TrackTitleImage>
+							<S.TrackTitleText>
+								<S.TrackTitleLink href="http://">
+									Guilt <S.TrackTitle/>
+								</S.TrackTitleLink>
+							</S.TrackTitleText>
+						</S.TrackTitle>
+						<S.TrackAuthor>
+							<S.TrackAuthorLink href="http://">
 								Nero
-							</a>
-						</div>
-						<div className="track__album">
-							<a className="track__album-link" href="http://">
+							</S.TrackAuthorLink>
+						</S.TrackAuthor>
+						<S.TrackAlbum>
+							<S.TrackAlbumLink href="http://">
 								Welcome Reality
-							</a>
-						</div>
-						<div className="track__time">
-							<svg className="track__time-svg" alt="time">
+							</S.TrackAlbumLink>
+						</S.TrackAlbum>
+						<S.TratrackTime>
+							<S.TratrackTimeSvg alt="time">
 								<use xlinkHref="img/icon/sprite.svg#icon-like" />
-							</svg>
-							<span className="track__time-text">4:44</span>
-						</div>
-					</div>
-				</div>
-				<div className="content__playlist playlist">
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
+							</S.TratrackTimeSvg>
+							<S.TratrackTimeText>4:44</S.TratrackTimeText>
+						</S.TratrackTime>
+					</S.PlaylistTrack>
+				</S.PlaylistItem>
+				<S.ContentPlaylist>
+					<S.PlaylistItem>
+						<S.PlaylistTrack className="track">
+							<S.TrackTitle>
+								<S.TrackTitleImage>
+									<S.TrackTitleSvg alt="music">
 										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
-										Elektro <span className="track__title-span" />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+									</S.TrackTitleSvg>
+								</S.TrackTitleImage>
+								<S.TrackTitleText>
+									<S.TrackTitleLink href="http://">
+										Elektro <S.TrackTitleSpan />
+									</S.TrackTitleLink>
+								</S.TrackTitleText>
+							</S.TrackTitle>
+							<S.TrackAuthor>
+								<S.TrackAuthorLink href="http://">
 									Dynoro, Outwork, Mr. Gee
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+								</S.TrackAuthorLink>
+							</S.TrackAuthor>
+							<S.TrackAlbum>
+								<S.TrackAlbumLink href="http://">
 									Elektro
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
+								</S.TrackAlbumLink>
+							</S.TrackAlbum>
+							<S.TratrackTime>
+								<S.TratrackTimeSvg alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-								<span className="track__time-text">2:22</span>
-							</div>
-						</div>
-					</div>
+								</S.TratrackTimeSvg>
+								<S.TratrackTimeText>2:22</S.TratrackTimeText>
+							</S.TratrackTime>
+						</S.PlaylistTrack>
+					</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
+					<S.PlaylistItem>
+						<S.PlaylistTrack className="track">
+							<S.TrackTitle>
+								<S.TrackTitleImage>
+									<S.TrackTitleSvg alt="music">
 										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
-										I’m Fire <span className="track__title-span" />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+									</S.TrackTitleSvg>
+								</S.TrackTitleImage>
+								<S.TrackTitleText>
+									<S.TrackTitleLink href="http://">
+										I’m Fire <S.TrackTitleSpan />
+									</S.TrackTitleLink>
+								</S.TrackTitleText>
+							</S.TrackTitle>
+							<S.TrackAuthor>
+								<S.TrackAuthorLink href="http://">
 									Ali Bakgor
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+								</S.TrackAuthorLink>
+							</S.TrackAuthor>
+							<S.TrackAlbum>
+								<S.TrackAlbumLink href="http://">
 									I’m Fire
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
+								</S.TrackAlbumLink>
+							</S.TrackAlbum>
+							<S.TratrackTime>
+								<S.TratrackTimeSvg alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-								<span className="track__time-text">2:22</span>
-							</div>
-						</div>
-					</div>
+								</S.TratrackTimeSvg>
+								<S.TratrackTimeText>2:22</S.TratrackTimeText>
+							</S.TratrackTime>
+						</S.PlaylistTrack>
+					</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
+					<S.PlaylistItem>
+						<S.PlaylistTrack className="track">
+							<S.TrackTitle>
+								<S.TrackTitleImage>
+									<S.TrackTitleSvg alt="music">
 										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
+									</S.TrackTitleSvg>
+								</S.TrackTitleImage>
+								<S.TrackTitleText>
+									<S.TrackTitleLink href="http://">
 										Non Stop
-										<span className="track__title-span">(Remix)</span>
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+										<S.TrackTitleSpan >(Remix)</S.TrackTitleSpan>
+									</S.TrackTitleLink>
+								</S.TrackTitleText>
+							</S.TrackTitle>
+							<S.TrackAuthor>
+								<S.TrackAuthorLink href="http://">
 									Стоункат, Psychopath
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+								</S.TrackAuthorLink>
+							</S.TrackAuthor>
+							<S.TrackAlbum>
+								<S.TrackAlbumLink href="http://">
 									Non Stop
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
+								</S.TrackAlbumLink>
+							</S.TrackAlbum>
+							<S.TratrackTime>
+								<S.TratrackTimeSvg alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-								<span className="track__time-text">4:12</span>
-							</div>
-						</div>
-					</div>
+								</S.TratrackTimeSvg>
+								<S.TratrackTimeText>4:12</S.TratrackTimeText>
+							</S.TratrackTime>
+						</S.PlaylistTrack>
+					</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
+					<S.PlaylistItem>
+						<S.PlaylistTrack className="track">
+							<S.TrackTitle>
+								<S.TrackTitleImage>
+									<S.TrackTitleSvg alt="music">
 										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
+									</S.TrackTitleSvg>
+								</S.TrackTitleImage>
+								<S.TrackTitleText>
+									<S.TrackTitleLink href="http://">
 										Run Run
-										<span className="track__title-span">(feat. AR/CO)</span>
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+										<S.TrackTitleSpan >(feat. AR/CO)</S.TrackTitleSpan>
+									</S.TrackTitleLink>
+								</S.TrackTitleText>
+							</S.TrackTitle>
+							<S.TrackAuthor>
+								<S.TrackAuthorLink href="http://">
 									Jaded, Will Clarke, AR/CO
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+								</S.TrackAuthorLink>
+							</S.TrackAuthor>
+							<S.TrackAlbum>
+								<S.TrackAlbumLink href="http://">
 									Run Run
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
+								</S.TrackAlbumLink>
+							</S.TrackAlbum>
+							<S.TratrackTime>
+								<S.TratrackTimeSvg alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-								<span className="track__time-text">2:54</span>
-							</div>
-						</div>
-					</div>
+								</S.TratrackTimeSvg>
+								<S.TratrackTimeText>2:54</S.TratrackTimeText>
+							</S.TratrackTime>
+						</S.PlaylistTrack>
+					</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
+					<S.PlaylistItem>
+						<S.PlaylistTrack className="track">
+							<S.TrackTitle>
+								<S.TrackTitleImage>
+									<S.TrackTitleSvg alt="music">
 										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
+									</S.TrackTitleSvg>
+								</S.TrackTitleImage>
+								<S.TrackTitleText>
+									<S.TrackTitleLink href="http://">
 										Eyes on Fire
-										<span className="track__title-span">(Zeds Dead Remix)</span>
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+										<S.TrackTitleSpan >(Zeds Dead Remix)</S.TrackTitleSpan>
+									</S.TrackTitleLink>
+								</S.TrackTitleText>
+							</S.TrackTitle>
+							<S.TrackAuthor>
+								<S.TrackAuthorLink href="http://">
 									Blue Foundation, Zeds Dead
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+								</S.TrackAuthorLink>
+							</S.TrackAuthor>
+							<S.TrackAlbum>
+								<S.TrackAlbumLink href="http://">
 									Eyes on Fire
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
+								</S.TrackAlbumLink>
+							</S.TrackAlbum>
+							<S.TratrackTime>
+								<S.TratrackTimeSvg alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-								<span className="track__time-text">5:20</span>
-							</div>
-						</div>
-					</div>
+								</S.TratrackTimeSvg>
+								<S.TratrackTimeText>5:20</S.TratrackTimeText>
+							</S.TratrackTime>
+						</S.PlaylistTrack>
+					</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
+					<S.PlaylistItem>
+						<S.PlaylistTrack className="track">
+							<S.TrackTitle>
+								<S.TrackTitleImage>
+									<S.TrackTitleSvg alt="music">
 										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
+									</S.TrackTitleSvg>
+								</S.TrackTitleImage>
+								<S.TrackTitleText>
+									<S.TrackTitleLink href="http://">
 										Mucho Bien
-										<span className="track__title-span">
+										<S.TrackTitleSpan >
 											(Hi Profile Remix)
-										</span>
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+										</S.TrackTitleSpan>
+									</S.TrackTitleLink>
+								</S.TrackTitleText>
+							</S.TrackTitle>
+							<S.TrackAuthor>
+								<S.TrackAuthorLink href="http://">
 									HYBIT, Mr. Black, Offer Nissim, Hi Profile
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+								</S.TrackAuthorLink>
+							</S.TrackAuthor>
+							<S.TrackAlbum>
+								<S.TrackAlbumLink href="http://">
 									Mucho Bien
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
+								</S.TrackAlbumLink>
+							</S.TrackAlbum>
+							<S.TratrackTime>
+								<S.TratrackTimeSvg alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-								<span className="track__time-text">3:41</span>
-							</div>
-						</div>
-					</div>
+								</S.TratrackTimeSvg>
+								<S.TratrackTimeText>3:41</S.TratrackTimeText>
+							</S.TratrackTime>
+						</S.PlaylistTrack>
+					</S.PlaylistItem>
 
-					<div className="playlist__item">
-						<div className="playlist__track track">
-							<div className="track__title">
-								<div className="track__title-image">
-									<svg className="track__title-svg" alt="music">
+					<S.PlaylistItem>
+						<S.PlaylistTrack className="track">
+							<S.TrackTitle>
+								<S.TrackTitleImage>
+									<S.TrackTitleSvg alt="music">
 										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</svg>
-								</div>
-								<div className="track__title-text">
-									<a className="track__title-link" href="http://">
+									</S.TrackTitleSvg>
+								</S.TrackTitleImage>
+								<S.TrackTitleText>
+									<S.TrackTitleLink href="http://">
 										Knives n Cherries
-										<span className="track__title-span" />
-									</a>
-								</div>
-							</div>
-							<div className="track__author">
-								<a className="track__author-link" href="http://">
+										<S.TrackTitleSpan />
+									</S.TrackTitleLink>
+								</S.TrackTitleText>
+							</S.TrackTitle>
+							<S.TrackAuthor>
+								<S.TrackAuthorLink href="http://">
 									minthaze
-								</a>
-							</div>
-							<div className="track__album">
-								<a className="track__album-link" href="http://">
+								</S.TrackAuthorLink>
+							</S.TrackAuthor>
+							<S.TrackAlbum>
+								<S.TrackAlbumLink href="http://">
 									Captivating
-								</a>
-							</div>
-							<div className="track__time">
-								<svg className="track__time-svg" alt="time">
+								</S.TrackAlbumLink>
+							</S.TrackAlbum>
+							<S.TratrackTime>
+								<S.TratrackTimeSvg alt="time">
 									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</svg>
-								<span className="track__time-text">1:48</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+								</S.TratrackTimeSvg>
+								<S.TratrackTimeText>1:48</S.TratrackTimeText>
+							</S.TratrackTime>
+						</S.PlaylistTrack>
+					</S.PlaylistItem>
+				</S.ContentPlaylist>
+			</S.CenterblockContent>
+		</S.MainCenterblock>
 	)
 }
-export default TrackList

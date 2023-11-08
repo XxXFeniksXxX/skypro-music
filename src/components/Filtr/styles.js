@@ -1,4 +1,6 @@
-.executorFilter {
+import { styled } from 'styled-components';
+
+export const ExecutorFilter = styled.div`
     position: absolute;
     background-color: #313131;
     color: #FFF;
@@ -13,55 +15,50 @@
     Gap: 28px;
     overflow: hidden;
     overflow-y: scroll;
-}
-.executorFilter::-webkit-scrollbar {
-    width: 6px;
-    background-color: #313131;
-    border-radius: 5px;
-}
-.executorFilter::-webkit-scrollbar-thumb {
-    background-color: #f9f9fd;
-    border-radius: 5px;
-}
-.yearFilter :hover{
-    color: #B672FF;
-}
-.executorFilter :hover{
-    color: #B672FF;
-}
-.genryFilter :hover{
-    color: #B672FF;
-}
-.yearFilter {
-    position: absolute;
-    background-color: #313131;
-    color: #FFF;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    Width: 248px;
-    Height: 305px ;
-    Top: 288px ;
-    border-radius: 12px ;
-    Padding: 34px ;
-    Gap: 28px;
-}
 
-.genryFilter {
-    position: absolute;
-    background-color: #313131;
-    color: #FFF;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    Width: 248px;
-    Height: 305px ;
-    Top: 288px ;
-    border-radius: 12px ;
-    Padding: 34px ;
-    Gap: 28px;
-}
-.Executor_text{
+  
+`
+export const ExecutorText = styled.a`
     color: #d9d9d9;
     text-decoration: none;
-}
+
+    :hover{
+        color: #B672FF;
+    }
+`
+export const YearFilter = styled.div`
+    position: absolute;
+    background-color: #313131;
+    color: #FFF;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    Width: 248px;
+    Height: 305px ;
+    Top: 288px ;
+    border-radius: 12px ;
+    Padding: 34px ;
+    Gap: 28px;
+
+    :hover{
+        color: #B672FF;
+    }
+`
+export const GenryFilter = styled.div`
+    position: absolute;
+    background-color: #313131;
+    color: #FFF;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    Width: 248px;
+    Height: 305px ;
+    Top: 288px ;
+    border-radius: 12px ;
+    Padding: 34px ;
+    Gap: 28px;
+
+    :hover{
+        color: #B672FF;
+    }
+`
