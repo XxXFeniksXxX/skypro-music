@@ -16,16 +16,10 @@ export const Container = styled.div`
 `
 
 export const Main = styled.main`
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
 `
 
@@ -37,13 +31,11 @@ export const GlobalStyle = createGlobalStyle`
 * {
 	margin: 0;
 	padding: 0;
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 *:before,
 *:after {
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 

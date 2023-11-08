@@ -16,16 +16,7 @@ export const ExecutorFilter = styled.div`
     overflow: hidden;
     overflow-y: scroll;
 
-    ::-webkit-scrollbar {
-        width: 6px;
-        background-color: #313131;
-        border-radius: 5px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: #f9f9fd;
-        border-radius: 5px;
-    }
+  
 `
 export const ExecutorText = styled.a`
     color: #d9d9d9;

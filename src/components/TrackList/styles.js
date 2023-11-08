@@ -2,8 +2,6 @@ import { styled } from 'styled-components';
 
 export const MainCenterblock = styled.div`
     width: auto;
-    -webkit-box-flex: 3;
-    -ms-flex-positive: 3;
     flex-grow: 3;
     padding: 20px 40px 20px 111px;
 `
@@ -18,15 +16,8 @@ export const CenterblockH2 = styled.h2`
 `
 
 export const CenterblockFilter = styled.div`
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     margin-bottom: 51px;
     gap: 15px;
@@ -51,28 +42,14 @@ export const FilterButton = styled.div`
 `
 
 export const CenterblockContent = styled.div`
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column; 
 `
 
 export const ContentTitle = styled.div`
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     margin-bottom: 24px;
 `
@@ -137,30 +114,14 @@ export const PlaylistItem = styled.div`
 `
 
 export const PlaylistTrack = styled.div`
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 `
 
 export const TrackTitle = styled.div`
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     width: 447px;
 `
@@ -170,14 +131,8 @@ export const TrackTitleImage = styled.div`
     height: 51px;
     padding: 16px;
     background: #313131;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     margin-right: 17px;
 `
@@ -211,11 +166,7 @@ export const TrackTitleSpan = styled.span`
 
 export const TrackAuthor = styled.div`
     width: 321px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
     justify-content: flex-start;
 `
 
@@ -262,12 +213,8 @@ export const TratrackTimeText = styled.span`
 `
 
 export const ContentPlaylist = styled.div`
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
+
     flex-direction: column;
     overflow-y: auto;
 `
