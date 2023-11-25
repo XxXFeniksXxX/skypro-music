@@ -46,4 +46,21 @@ export const SidebarList = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 25px;
+`;
+
+export const SidebarItem = styled.div`
+    color: #dark; 
+	width: 250px;
+	height: 150px;
+`;
+
+export const SidebarLink = styled.a`
+    width: 100%;
+    height: 100%;
+`;
+
+export const SidebarImg = styled.img`
+    width: 100%;
+    height: auto;
 `;

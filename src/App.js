@@ -1,22 +1,22 @@
 import * as S from './App.style.js'
-import { TrackList } from './components/TrackList/TrackList';
-import { Nav } from './components/Nav/Nav';
-import { SideBar } from './components/SideBar/SideBar';
-import { AudioPlayer } from './components/AudioPlayer/AudioPlayer';
+import { useState } from "react";
 import { GlobalStyle } from './App.style.js';
+import { AppRoutes } from './routes.jsx';
+import { Autorisation } from './components/Boolean/Autorisation.jsx';
 export function App() {
+		const [user, setUser] = useState(null);
+	  
+		const handleLogin = () => setUser({ login: "taradam" });
+	  
+		const handleLogout = () => setUser(null);
 	return (
 		<S.Wrapper>
 			<GlobalStyle />
-			<S.Container>
-				<S.Main>
-					<Nav />
-					<TrackList />
-					<SideBar />
-				</S.Main>
-				<AudioPlayer />
-				<S.Footer />
-			</S.Container>
+			<Autorisation
+          user={user}
+          onAuthButtonClick={user ? handleLogout : handleLogin}
+        />
+			 <AppRoutes user={user} />
 		</S.Wrapper>
 	);
 }

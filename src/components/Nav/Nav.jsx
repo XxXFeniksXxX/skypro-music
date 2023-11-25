@@ -1,7 +1,7 @@
 // import React from 'react'
 import { useState } from 'react';
 import * as S from './styles.js'
-
+import { NavLink } from 'react-router-dom';
 export function Nav() {
 
 	const [visible, setVisible] = useState(false);
@@ -22,18 +22,14 @@ export function Nav() {
 				<S.NavMenu>
 					<S.MenuList>
 						<S.MenuItem>
-							<S.MenuLink href="index.html">
-								Главное
-							</S.MenuLink>
+						<NavLink to="/">Главная </NavLink>
 						</S.MenuItem>
 						<S.MenuItem>
-							<S.MenuLink href="index.html">
-								Мой плейлист
-							</S.MenuLink>
+						<NavLink to="/category">Мой плейлист </NavLink>
 						</S.MenuItem>
 						<S.MenuItem>
-							<S.MenuLink href="../signin.html">
-								Войти
+							<S.MenuLink href="/">
+								Выйти
 							</S.MenuLink>
 						</S.MenuItem>
 					</S.MenuList>
