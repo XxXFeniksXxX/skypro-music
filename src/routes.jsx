@@ -7,7 +7,7 @@ import { Category } from "./components/Category";
 import { ProtectedRoute } from "./components/protected-route";
 import { FavoritesPage } from "./components/pages/my collectios/favorites";
 
-export const AppRoutes = ({ user }) => {
+export const AppRoutes = ({ user, todos}) => {
 
   return (
     <Routes>
@@ -15,7 +15,7 @@ export const AppRoutes = ({ user }) => {
       <Route path="/login" element={<LogIn />} />
 
       <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>
-        <Route path="/" element={<MainContent />} />
+        <Route path="/" element={<MainContent todos = {todos} />} />
         <Route path="//FavoritesPage/:id" element={<FavoritesPage />} />
         <Route path="/category" element={<Category />} />
       </Route>

@@ -2,7 +2,7 @@ import * as S from './styles.js'
 import { SkeletAudioPlayer } from '../SkeletAll/SkeletAudioPlayer'
 import React, { useState, useEffect } from 'react'
 
-export const AudioPlayer = () => {
+export const AudioPlayer = ({ todo }) => {
 	const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -58,12 +58,12 @@ export const AudioPlayer = () => {
 								</S.TrackPlayImage>
 								<S.TrackPlayAuthor>
 									<S.TrackPlayAuthorLink href="http://">
-										Ты та...
+									{todo.track}
 									</S.TrackPlayAuthorLink>
 								</S.TrackPlayAuthor>
 								<S.TrackPlayAlbum>
 									<S.TrackPlayAlbumLink href="http://">
-										Баста
+									{todo.executor}
 									</S.TrackPlayAlbumLink>
 								</S.TrackPlayAlbum>
 							</S.TrackPlayContain>

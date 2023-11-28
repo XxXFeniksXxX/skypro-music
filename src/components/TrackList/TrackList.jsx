@@ -3,21 +3,17 @@ import * as S from './styles.js';
 import React, { useState, useEffect } from 'react'
 import { Skelet } from '../SkeletAll/SkeletTrack'
 import { FiltrExecutor, FiltrYear, FilterGenre } from '../Filtr/Filtr'
-import { getTodos } from '../../Api.js';
+import { AudioPlayer } from '../AudioPlayer/AudioPlayer.jsx';
 // import { getTodos } from '../../Api.js';
 export const ApiRenderTreck = () => {
 	
   };
-export const TrackList = () => {
-	const [todos, setTodos] = useState([]);
+export const TrackList = ({todos}) => {
+	const [playingState, setPlayingState] = useState(null);
 
-	useEffect(() => {
-		getTodos().then((todos) => {
-			console.log(todos);
-			setTodos(todos.todos);
-			console.log(`${todos}`);
-		});
-	}, []);
+	const PlayTrack = (todo) => {
+		setPlayingState = (todo);
+	}
 
 	const style = {
 		color: '#ad61ff',
@@ -70,7 +66,9 @@ export const TrackList = () => {
 	}
 	
 	return (
+		
 		<S.MainCenterblock className="centerblock">
+			{playingState ? (<AudioPlayer todo = {todo} />) : null}
 			<Searchblock />
 			<S.CenterblockH2>Треки</S.CenterblockH2>
 			<S.CenterblockFilter className="filter">
@@ -125,7 +123,7 @@ export const TrackList = () => {
 								</S.TrackTitleSvg>
 							</S.TrackTitleImage>
 							<S.TrackTitleText>
-								<S.TrackTitleLink href="http://">
+								<S.TrackTitleLink onClick={() => PlayTrack(todo)} href="http://">
 									{todo.track} <S.TrackTitleSpan >
 											{todo.note}
 										</S.TrackTitleSpan>
