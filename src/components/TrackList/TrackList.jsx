@@ -1,11 +1,27 @@
 import { Searchblock } from '../Searchblock/Searchblock';
 import * as S from './styles.js';
-import './styles.css';
 import React, { useState, useEffect } from 'react'
 import { Skelet } from '../SkeletAll/SkeletTrack'
 import { FiltrExecutor, FiltrYear, FilterGenre } from '../Filtr/Filtr'
+import { getTodos } from '../../Api.js';
+// import { getTodos } from '../../Api.js';
+export const ApiRenderTreck = () => {
+	
+  };
+export const TrackList = () => {
+	const [todos, setTodos] = useState([]);
 
-export function TrackList() {
+	useEffect(() => {
+		getTodos().then((todos) => {
+			console.log(todos);
+			setTodos(todos.todos);
+			console.log(`${todos}`);
+		});
+	}, []);
+
+	const style = {
+		color: '#ad61ff',
+	}
 	const [loading, setLoading] = useState(true)
 	const [visibleExecutor, setVisibleExecutor] = useState(false);
 	const [visibleYear, setVisibleYear] = useState(false);
@@ -44,7 +60,7 @@ export function TrackList() {
 	useEffect(() => {
 		setTimeout(() => {
 			setLoading(false)
-		}, 5000)
+		}, 10)
 	}, [])
 
 	if (loading) {
@@ -52,7 +68,7 @@ export function TrackList() {
 			<Skelet />
 		)
 	}
-
+	
 	return (
 		<S.MainCenterblock className="centerblock">
 			<Searchblock />
@@ -60,7 +76,7 @@ export function TrackList() {
 			<S.CenterblockFilter className="filter">
 				<S.FilterTitle>Искать по:</S.FilterTitle>
 				<div>
-					<S.FilterButton className={`button-author _btn-text ${isActiveExecutor ? "active" : ""}`} onClick={menuExecutorClick}>
+					<S.FilterButton className={`${isActiveExecutor ? {style} : ""}`} onClick={menuExecutorClick}>
 						исполнителю
 					</S.FilterButton>
 					{visibleExecutor && <div>
@@ -69,7 +85,7 @@ export function TrackList() {
 					}
 				</div>
 				<div>
-					<S.FilterButton className={`button-year _btn-text ${isActiveYear ? "active" : ""}`} id='Year' onClick={menyYearClick}>году выпуска
+					<S.FilterButton className={`${isActiveYear ? "active" : ""}`} onClick={menyYearClick}>году выпуска
 					</S.FilterButton>
 					{visibleYear && <div>
 						<FiltrYear />
@@ -77,7 +93,7 @@ export function TrackList() {
 					}
 				</div>
 				<div>
-					<S.FilterButton className={`button-genre _btn-text ${isActiveGenre ? "active" : ""}`} onClick={menyGenreClick}> жанру
+					<S.FilterButton className={`${isActiveGenre ? "active" : ""}`} onClick={menyGenreClick}> жанру
 					</S.FilterButton>
 					{visibleGenre && <div>
 						<FilterGenre />
@@ -98,277 +114,44 @@ export function TrackList() {
 						</S.PlaylistTitleSvg>
 					</S.PlaylistTitleCol04>
 				</S.ContentTitle>
-				<S.PlaylistItem>
-					<S.PlaylistTrack className="track">
+				
+				{todos ?.map((todo) => {
+					 return <S.PlaylistItem key={todo.id}>
+					 <S.PlaylistTrack className="track">
 						<S.TrackTitle>
 							<S.TrackTitleImage>
 								<S.TrackTitleSvg alt="music">
-									<use xlinkHref="img/icon/sprite.svg#icon-note" />
+									<use xlinkHref = {todo.img} />
 								</S.TrackTitleSvg>
 							</S.TrackTitleImage>
 							<S.TrackTitleText>
 								<S.TrackTitleLink href="http://">
-									Guilt <S.TrackTitle/>
+									{todo.track} <S.TrackTitleSpan >
+											{todo.note}
+										</S.TrackTitleSpan>
+										<S.TrackTitle/>
 								</S.TrackTitleLink>
 							</S.TrackTitleText>
 						</S.TrackTitle>
 						<S.TrackAuthor>
 							<S.TrackAuthorLink href="http://">
-								Nero
+								{todo.executor}
 							</S.TrackAuthorLink>
 						</S.TrackAuthor>
 						<S.TrackAlbum>
 							<S.TrackAlbumLink href="http://">
-								Welcome Reality
+								{todo.album}
 							</S.TrackAlbumLink>
 						</S.TrackAlbum>
 						<S.TratrackTime>
 							<S.TratrackTimeSvg alt="time">
 								<use xlinkHref="img/icon/sprite.svg#icon-like" />
 							</S.TratrackTimeSvg>
-							<S.TratrackTimeText>4:44</S.TratrackTimeText>
+							<S.TratrackTimeText>{todo.time}</S.TratrackTimeText>
 						</S.TratrackTime>
 					</S.PlaylistTrack>
 				</S.PlaylistItem>
-				<S.ContentPlaylist>
-					<S.PlaylistItem>
-						<S.PlaylistTrack className="track">
-							<S.TrackTitle>
-								<S.TrackTitleImage>
-									<S.TrackTitleSvg alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</S.TrackTitleSvg>
-								</S.TrackTitleImage>
-								<S.TrackTitleText>
-									<S.TrackTitleLink href="http://">
-										Elektro <S.TrackTitleSpan />
-									</S.TrackTitleLink>
-								</S.TrackTitleText>
-							</S.TrackTitle>
-							<S.TrackAuthor>
-								<S.TrackAuthorLink href="http://">
-									Dynoro, Outwork, Mr. Gee
-								</S.TrackAuthorLink>
-							</S.TrackAuthor>
-							<S.TrackAlbum>
-								<S.TrackAlbumLink href="http://">
-									Elektro
-								</S.TrackAlbumLink>
-							</S.TrackAlbum>
-							<S.TratrackTime>
-								<S.TratrackTimeSvg alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</S.TratrackTimeSvg>
-								<S.TratrackTimeText>2:22</S.TratrackTimeText>
-							</S.TratrackTime>
-						</S.PlaylistTrack>
-					</S.PlaylistItem>
-
-					<S.PlaylistItem>
-						<S.PlaylistTrack className="track">
-							<S.TrackTitle>
-								<S.TrackTitleImage>
-									<S.TrackTitleSvg alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</S.TrackTitleSvg>
-								</S.TrackTitleImage>
-								<S.TrackTitleText>
-									<S.TrackTitleLink href="http://">
-										I’m Fire <S.TrackTitleSpan />
-									</S.TrackTitleLink>
-								</S.TrackTitleText>
-							</S.TrackTitle>
-							<S.TrackAuthor>
-								<S.TrackAuthorLink href="http://">
-									Ali Bakgor
-								</S.TrackAuthorLink>
-							</S.TrackAuthor>
-							<S.TrackAlbum>
-								<S.TrackAlbumLink href="http://">
-									I’m Fire
-								</S.TrackAlbumLink>
-							</S.TrackAlbum>
-							<S.TratrackTime>
-								<S.TratrackTimeSvg alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</S.TratrackTimeSvg>
-								<S.TratrackTimeText>2:22</S.TratrackTimeText>
-							</S.TratrackTime>
-						</S.PlaylistTrack>
-					</S.PlaylistItem>
-
-					<S.PlaylistItem>
-						<S.PlaylistTrack className="track">
-							<S.TrackTitle>
-								<S.TrackTitleImage>
-									<S.TrackTitleSvg alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</S.TrackTitleSvg>
-								</S.TrackTitleImage>
-								<S.TrackTitleText>
-									<S.TrackTitleLink href="http://">
-										Non Stop
-										<S.TrackTitleSpan >(Remix)</S.TrackTitleSpan>
-									</S.TrackTitleLink>
-								</S.TrackTitleText>
-							</S.TrackTitle>
-							<S.TrackAuthor>
-								<S.TrackAuthorLink href="http://">
-									Стоункат, Psychopath
-								</S.TrackAuthorLink>
-							</S.TrackAuthor>
-							<S.TrackAlbum>
-								<S.TrackAlbumLink href="http://">
-									Non Stop
-								</S.TrackAlbumLink>
-							</S.TrackAlbum>
-							<S.TratrackTime>
-								<S.TratrackTimeSvg alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</S.TratrackTimeSvg>
-								<S.TratrackTimeText>4:12</S.TratrackTimeText>
-							</S.TratrackTime>
-						</S.PlaylistTrack>
-					</S.PlaylistItem>
-
-					<S.PlaylistItem>
-						<S.PlaylistTrack className="track">
-							<S.TrackTitle>
-								<S.TrackTitleImage>
-									<S.TrackTitleSvg alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</S.TrackTitleSvg>
-								</S.TrackTitleImage>
-								<S.TrackTitleText>
-									<S.TrackTitleLink href="http://">
-										Run Run
-										<S.TrackTitleSpan >(feat. AR/CO)</S.TrackTitleSpan>
-									</S.TrackTitleLink>
-								</S.TrackTitleText>
-							</S.TrackTitle>
-							<S.TrackAuthor>
-								<S.TrackAuthorLink href="http://">
-									Jaded, Will Clarke, AR/CO
-								</S.TrackAuthorLink>
-							</S.TrackAuthor>
-							<S.TrackAlbum>
-								<S.TrackAlbumLink href="http://">
-									Run Run
-								</S.TrackAlbumLink>
-							</S.TrackAlbum>
-							<S.TratrackTime>
-								<S.TratrackTimeSvg alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</S.TratrackTimeSvg>
-								<S.TratrackTimeText>2:54</S.TratrackTimeText>
-							</S.TratrackTime>
-						</S.PlaylistTrack>
-					</S.PlaylistItem>
-
-					<S.PlaylistItem>
-						<S.PlaylistTrack className="track">
-							<S.TrackTitle>
-								<S.TrackTitleImage>
-									<S.TrackTitleSvg alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</S.TrackTitleSvg>
-								</S.TrackTitleImage>
-								<S.TrackTitleText>
-									<S.TrackTitleLink href="http://">
-										Eyes on Fire
-										<S.TrackTitleSpan >(Zeds Dead Remix)</S.TrackTitleSpan>
-									</S.TrackTitleLink>
-								</S.TrackTitleText>
-							</S.TrackTitle>
-							<S.TrackAuthor>
-								<S.TrackAuthorLink href="http://">
-									Blue Foundation, Zeds Dead
-								</S.TrackAuthorLink>
-							</S.TrackAuthor>
-							<S.TrackAlbum>
-								<S.TrackAlbumLink href="http://">
-									Eyes on Fire
-								</S.TrackAlbumLink>
-							</S.TrackAlbum>
-							<S.TratrackTime>
-								<S.TratrackTimeSvg alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</S.TratrackTimeSvg>
-								<S.TratrackTimeText>5:20</S.TratrackTimeText>
-							</S.TratrackTime>
-						</S.PlaylistTrack>
-					</S.PlaylistItem>
-
-					<S.PlaylistItem>
-						<S.PlaylistTrack className="track">
-							<S.TrackTitle>
-								<S.TrackTitleImage>
-									<S.TrackTitleSvg alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</S.TrackTitleSvg>
-								</S.TrackTitleImage>
-								<S.TrackTitleText>
-									<S.TrackTitleLink href="http://">
-										Mucho Bien
-										<S.TrackTitleSpan >
-											(Hi Profile Remix)
-										</S.TrackTitleSpan>
-									</S.TrackTitleLink>
-								</S.TrackTitleText>
-							</S.TrackTitle>
-							<S.TrackAuthor>
-								<S.TrackAuthorLink href="http://">
-									HYBIT, Mr. Black, Offer Nissim, Hi Profile
-								</S.TrackAuthorLink>
-							</S.TrackAuthor>
-							<S.TrackAlbum>
-								<S.TrackAlbumLink href="http://">
-									Mucho Bien
-								</S.TrackAlbumLink>
-							</S.TrackAlbum>
-							<S.TratrackTime>
-								<S.TratrackTimeSvg alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</S.TratrackTimeSvg>
-								<S.TratrackTimeText>3:41</S.TratrackTimeText>
-							</S.TratrackTime>
-						</S.PlaylistTrack>
-					</S.PlaylistItem>
-
-					<S.PlaylistItem>
-						<S.PlaylistTrack className="track">
-							<S.TrackTitle>
-								<S.TrackTitleImage>
-									<S.TrackTitleSvg alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</S.TrackTitleSvg>
-								</S.TrackTitleImage>
-								<S.TrackTitleText>
-									<S.TrackTitleLink href="http://">
-										Knives n Cherries
-										<S.TrackTitleSpan />
-									</S.TrackTitleLink>
-								</S.TrackTitleText>
-							</S.TrackTitle>
-							<S.TrackAuthor>
-								<S.TrackAuthorLink href="http://">
-									minthaze
-								</S.TrackAuthorLink>
-							</S.TrackAuthor>
-							<S.TrackAlbum>
-								<S.TrackAlbumLink href="http://">
-									Captivating
-								</S.TrackAlbumLink>
-							</S.TrackAlbum>
-							<S.TratrackTime>
-								<S.TratrackTimeSvg alt="time">
-									<use xlinkHref="img/icon/sprite.svg#icon-like" />
-								</S.TratrackTimeSvg>
-								<S.TratrackTimeText>1:48</S.TratrackTimeText>
-							</S.TratrackTime>
-						</S.PlaylistTrack>
-					</S.PlaylistItem>
-				</S.ContentPlaylist>
+				})}
 			</S.CenterblockContent>
 		</S.MainCenterblock>
 	)

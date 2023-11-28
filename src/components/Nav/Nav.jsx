@@ -22,10 +22,10 @@ export function Nav() {
 				<S.NavMenu>
 					<S.MenuList>
 						<S.MenuItem>
-						<NavLink to="/">Главная </NavLink>
+						<S.LinkElement to="/">Главная </S.LinkElement>
 						</S.MenuItem>
 						<S.MenuItem>
-						<NavLink to="/category">Мой плейлист </NavLink>
+						<S.LinkElement to="/category">Мой плейлист </S.LinkElement>
 						</S.MenuItem>
 						<S.MenuItem>
 							<S.MenuLink href="/">

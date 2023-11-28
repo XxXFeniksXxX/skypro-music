@@ -12,16 +12,16 @@ export function Skelet() {
 				<S.CenterblockFilter className="filter">
 					<S.FilterTitle>Искать по:</S.FilterTitle>
 					<div>
-						<S.FilterButton className="button-author _btn-text">
+						<S.FilterButton>
 							исполнителю
 						</S.FilterButton>
 					</div>
 					<div>
-						<S.FilterButton className="button-year _btn-text">году выпуска
+						<S.FilterButton>году выпуска
 						</S.FilterButton>
 					</div>
 					<div>
-						<S.FilterButton className="button-genre _btn-text"> жанру
+						<S.FilterButton> жанру
 						</S.FilterButton>
 					</div>
 				</S.CenterblockFilter>

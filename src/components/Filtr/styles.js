@@ -16,7 +16,9 @@ export const ExecutorFilter = styled.div`
     overflow: hidden;
     overflow-y: scroll;
 
-  
+    :hover{
+        color: #B672FF;
+    }
 `
 export const ExecutorText = styled.a`
     color: #d9d9d9;

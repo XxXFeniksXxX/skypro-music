@@ -9,10 +9,10 @@ export const LogIn = () => {
   return (
     <S.Content>
       <S.Title>Страница логина</S.Title>
-      <S.Button><NavLink to="/" >Вход</NavLink></S.Button>
-        <NavLink to="/register"  style={style}>
+      <S.Button><S.LinkElementButton to="/" >Вход</S.LinkElementButton></S.Button>
+        <S.LinkElement to="/register"  style={style}>
           Перейти к регистрации 
-        </NavLink>
+        </S.LinkElement>
     </S.Content>
   );
 }
