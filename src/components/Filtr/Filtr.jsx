@@ -1,6 +1,6 @@
 import * as S from './styles.js'
 
-export function FiltrExecutor() {
+export const FiltrExecutor = () => {
     return (
         <S.ExecutorFilter>
             <S.ExecutorText href="#">Nero</S.ExecutorText>
@@ -15,7 +15,7 @@ export function FiltrExecutor() {
     )
 }
 
-export function FiltrYear() {
+export const FiltrYear = () => {
     return (
         <S.YearFilter>
             <S.ExecutorText href="#">2002</S.ExecutorText>
@@ -25,7 +25,7 @@ export function FiltrYear() {
     )
 }
 
-export function FilterGenre() {
+export const FilterGenre = () => {
     return (
         <S.GenryFilter>
             <S.ExecutorText href="#">Рок</S.ExecutorText>

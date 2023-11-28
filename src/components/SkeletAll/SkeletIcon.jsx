@@ -2,7 +2,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import * as S from '../SideBar/styles.js'
 
-export function SkeletIcon() {
+export const SkeletIcon = () => {
     return (
         <SkeletonTheme baseColor='#474747' highlightColor='#313131'>
         <S.MainSidebar className="sidebar">

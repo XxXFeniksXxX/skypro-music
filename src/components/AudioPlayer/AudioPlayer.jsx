@@ -2,7 +2,7 @@ import * as S from './styles.js'
 import { SkeletAudioPlayer } from '../SkeletAll/SkeletAudioPlayer'
 import React, { useState, useEffect } from 'react'
 
-export function AudioPlayer() {
+export const AudioPlayer = () => {
 	const [loading, setLoading] = useState(true)
 
     useEffect(() => {

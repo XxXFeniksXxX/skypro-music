@@ -2,7 +2,7 @@ import * as S from '../AudioPlayer/styles.js'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-export function SkeletAudioPlayer() {
+export const SkeletAudioPlayer = () => {
     return (
         <S.Bar>
             <S.BarContent>

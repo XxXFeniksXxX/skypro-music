@@ -3,7 +3,7 @@ import { useState } from "react";
 import { GlobalStyle } from './App.style.js';
 import { AppRoutes } from './routes.jsx';
 import { Autorisation } from './components/Boolean/Autorisation.jsx';
-export function App() {
+export const App = () => {
 		const [user, setUser] = useState(null);
 	  
 		const handleLogin = () => setUser({ login: "taradam" });

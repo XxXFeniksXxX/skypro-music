@@ -1,6 +1,6 @@
 import * as S from './styles.js'
 
-export function Searchblock() {
+export const Searchblock = () => {
 	return (
 		<S.centerblockSearch>
 			<S.SearchSvg>

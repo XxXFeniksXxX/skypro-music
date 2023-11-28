@@ -3,7 +3,7 @@ import { Searchblock } from '../Searchblock/Searchblock'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-export function Skelet() {
+export const Skelet = () => {
 	return (
 		<SkeletonTheme baseColor='#474747' highlightColor='#313131'>
 			<S.MainCenterblock className="centerblock">
