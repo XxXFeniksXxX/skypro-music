@@ -107,7 +107,7 @@ export const TrackList = ({todos, addTodoError}) => {
 						</S.PlaylistTitleSvg>
 					</S.PlaylistTitleCol04>
 				</S.ContentTitle>
-					{/* <S.Error> Проверте вашу сеть {addTodoError}</S.Error> */}
+					<S.Error> Проверте вашу сеть {addTodoError}</S.Error>
 				{todos ?.map((todo) => {
 					 return <S.PlaylistItem key={todo.id}>
 					 <S.PlaylistTrack className="track">
