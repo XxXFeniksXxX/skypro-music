@@ -229,3 +229,8 @@ export const ContentPlaylist = styled.div`
     flex-direction: column;
     overflow-y: auto;
 `
+
+export const Error = styled.div`
+    color: "red";
+`
+

@@ -12,7 +12,8 @@ export const App = () => {
 		const handleLogout = () => setUser(null);
 
 		const [todos, setTodos] = useState([]);
-
+		const [addTodoError, setAddTodoError] = useState(null);
+		try{
 	useEffect(() => {
 		getTodos().then((todos) => {
 			console.log(todos);
@@ -20,6 +21,9 @@ export const App = () => {
 			console.log(`${todos}`);
 		});
 	}, []);
+} catch (error){
+	setAddTodoError(error.message);
+}
 	return (
 		<S.Wrapper>
 			<GlobalStyle />
@@ -27,7 +31,7 @@ export const App = () => {
           user={user}
           onAuthButtonClick={user ? handleLogout : handleLogin}
         />
-			 <AppRoutes user={user} todos={todos}/>
+			<AppRoutes user={user} todos={todos} addTodoError = {addTodoError}/>
 		</S.Wrapper>
 	);
 }

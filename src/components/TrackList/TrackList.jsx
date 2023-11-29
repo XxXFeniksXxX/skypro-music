@@ -5,16 +5,11 @@ import { Skelet } from '../SkeletAll/SkeletTrack'
 import { FiltrExecutor, FiltrYear, FilterGenre } from '../Filtr/Filtr'
 import { AudioPlayer } from '../AudioPlayer/AudioPlayer.jsx';
 // import { getTodos } from '../../Api.js';
-export const ApiRenderTreck = () => {
-	
-  };
-export const TrackList = ({todos}) => {
+export const TrackList = ({todos, addTodoError}) => {
 	const [playingState, setPlayingState] = useState(null);
-
 	const PlayTrack = (todo) => {
 		setPlayingState = (todo);
 	}
-
 	const style = {
 		color: '#ad61ff',
 	}
@@ -112,7 +107,7 @@ export const TrackList = ({todos}) => {
 						</S.PlaylistTitleSvg>
 					</S.PlaylistTitleCol04>
 				</S.ContentTitle>
-				
+					{/* <S.Error> Проверте вашу сеть {addTodoError}</S.Error> */}
 				{todos ?.map((todo) => {
 					 return <S.PlaylistItem key={todo.id}>
 					 <S.PlaylistTrack className="track">
@@ -124,7 +119,7 @@ export const TrackList = ({todos}) => {
 							</S.TrackTitleImage>
 							<S.TrackTitleText>
 								<S.TrackTitleLink onClick={() => PlayTrack(todo)} href="http://">
-									{todo.track} <S.TrackTitleSpan >
+									{todo.name} <S.TrackTitleSpan >
 											{todo.note}
 										</S.TrackTitleSpan>
 										<S.TrackTitle/>
@@ -133,12 +128,12 @@ export const TrackList = ({todos}) => {
 						</S.TrackTitle>
 						<S.TrackAuthor>
 							<S.TrackAuthorLink href="http://">
-								{todo.executor}
+								{todo.author}
 							</S.TrackAuthorLink>
 						</S.TrackAuthor>
 						<S.TrackAlbum>
 							<S.TrackAlbumLink href="http://">
-								{todo.album}
+								{todo.genre}
 							</S.TrackAlbumLink>
 						</S.TrackAlbum>
 						<S.TratrackTime>
