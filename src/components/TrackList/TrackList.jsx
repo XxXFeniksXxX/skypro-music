@@ -113,13 +113,13 @@ export const TrackList = ({todos, addTodoError}) => {
 						<S.TrackTitle>
 							<S.TrackTitleImage>
 								<S.TrackTitleSvg alt="music">
-									<use xlinkHref = {todo.img} />
+									{/* <use xlinkHref = {todo.img} /> */}
 								</S.TrackTitleSvg>
 							</S.TrackTitleImage>
 							<S.TrackTitleText>
 								<S.TrackTitleLink onClick={() => PlayTrack(todo)} href="http://">
 									{todo.name} <S.TrackTitleSpan >
-											{todo.note}
+											{/* {todo.note} */}
 										</S.TrackTitleSpan>
 										<S.TrackTitle/>
 								</S.TrackTitleLink>
@@ -139,7 +139,7 @@ export const TrackList = ({todos, addTodoError}) => {
 							<S.TratrackTimeSvg alt="time">
 								<use xlinkHref="img/icon/sprite.svg#icon-like" />
 							</S.TratrackTimeSvg>
-							<S.TratrackTimeText>{todo.time}</S.TratrackTimeText>
+							<S.TratrackTimeText>{todo.duration_in_seconds}</S.TratrackTimeText>
 						</S.TratrackTime>
 					</S.PlaylistTrack>
 				</S.PlaylistItem>
