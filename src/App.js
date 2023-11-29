@@ -16,9 +16,9 @@ export const App = () => {
 		try{
 	useEffect(() => {
 		getTodos().then((todos) => {
-			console.log(todos);
+
 			setTodos(todos.todos);
-			console.log(`${todos}`);
+			console.log(todos);
 		});
 	}, []);
 } catch (error){

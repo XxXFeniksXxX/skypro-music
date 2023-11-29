@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react'
 import { Skelet } from '../SkeletAll/SkeletTrack'
 import { FiltrExecutor, FiltrYear, FilterGenre } from '../Filtr/Filtr'
 import { AudioPlayer } from '../AudioPlayer/AudioPlayer.jsx';
-// import { getTodos } from '../../Api.js';
 export const TrackList = ({todos, addTodoError}) => {
 	const [playingState, setPlayingState] = useState(null);
 	const PlayTrack = (todo) => {
@@ -107,7 +106,7 @@ export const TrackList = ({todos, addTodoError}) => {
 						</S.PlaylistTitleSvg>
 					</S.PlaylistTitleCol04>
 				</S.ContentTitle>
-					<S.Error> Проверте вашу сеть {addTodoError}</S.Error>
+					<S.Error>{addTodoError}</S.Error>
 				{todos ?.map((todo) => {
 					 return <S.PlaylistItem key={todo.id}>
 					 <S.PlaylistTrack className="track">
