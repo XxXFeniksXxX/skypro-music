@@ -4,12 +4,12 @@ import { TrackList } from "../../TrackList/TrackList";
 import { SideBar } from "../../SideBar/SideBar";
 // import { AudioPlayer } from '../../AudioPlayer/AudioPlayer.jsx';
 
-export const MainContent = ({ todos, addTodoError }) => {
+export const MainContent = ({ tracks, addtrackError }) => {
     return (
         <S.Container>
 				<S.Main>
 					<Nav />
-					<TrackList todos = {todos} addTodoError={addTodoError}/>
+					<TrackList tracks = {tracks} addtrackError={addtrackError}/>
 					<SideBar />
 				</S.Main>
 				<S.Footer />

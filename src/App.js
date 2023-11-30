@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { GlobalStyle } from './App.style.js';
 import { AppRoutes } from './routes.jsx';
 import { Autorisation } from './components/Boolean/Autorisation.jsx';
-import { getTodos } from './Api.js';
+import { getTracks } from './Api.js';
 export const App = () => {
 		const [user, setUser] = useState(null);
 	  
@@ -11,18 +11,17 @@ export const App = () => {
 	  
 		const handleLogout = () => setUser(null);
 
-		const [todos, setTodos] = useState([]);
-		const [addTodoError, setAddTodoError] = useState(null);
+		const [tracks, setTracks] = useState([]);
+		const [addtrackError, setAddtrackError] = useState(null);
 		try{
 	useEffect(() => {
-		getTodos().then((todos) => {
-
-			setTodos(todos.todos);
-			console.log(todos);
+		getTracks().then((tracks) => {
+			setTracks(tracks.track);
+			console.log(tracks);
 		});
 	}, []);
 } catch (error){
-	setAddTodoError(error.message);
+	setAddtrackError(error.message);
 }
 	return (
 		<S.Wrapper>
@@ -31,7 +30,7 @@ export const App = () => {
           user={user}
           onAuthButtonClick={user ? handleLogout : handleLogin}
         />
-			<AppRoutes user={user} todos={todos} addTodoError = {addTodoError}/>
+			<AppRoutes user={user} tracks={tracks} addtrackError = {addtrackError}/>
 		</S.Wrapper>
 	);
 }

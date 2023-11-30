@@ -4,10 +4,10 @@ import React, { useState, useEffect } from 'react'
 import { Skelet } from '../SkeletAll/SkeletTrack'
 import { FiltrExecutor, FiltrYear, FilterGenre } from '../Filtr/Filtr'
 import { AudioPlayer } from '../AudioPlayer/AudioPlayer.jsx';
-export const TrackList = ({todos, addTodoError}) => {
+export const TrackList = ({tracks, addtrackError}) => {
 	const [playingState, setPlayingState] = useState(null);
-	const PlayTrack = (todo) => {
-		setPlayingState = (todo);
+	const PlayTrack = (track) => {
+		setPlayingState = (track);
 	}
 	const style = {
 		color: '#ad61ff',
@@ -62,7 +62,7 @@ export const TrackList = ({todos, addTodoError}) => {
 	return (
 		
 		<S.MainCenterblock className="centerblock">
-			{playingState ? (<AudioPlayer todo = {todo} />) : null}
+			{playingState ? (<AudioPlayer track = {track} />) : null}
 			<Searchblock />
 			<S.CenterblockH2>Треки</S.CenterblockH2>
 			<S.CenterblockFilter className="filter">
@@ -106,20 +106,20 @@ export const TrackList = ({todos, addTodoError}) => {
 						</S.PlaylistTitleSvg>
 					</S.PlaylistTitleCol04>
 				</S.ContentTitle>
-					<S.Error>{addTodoError}</S.Error>
-				{todos ?.map((todo) => {
-					 return <S.PlaylistItem key={todo.id}>
+					<S.Error>{addtrackError}</S.Error>
+				{tracks ?.map((track) => {
+					 return <S.PlaylistItem key={track.id}>
 					 <S.PlaylistTrack className="track">
 						<S.TrackTitle>
 							<S.TrackTitleImage>
 								<S.TrackTitleSvg alt="music">
-									{/* <use xlinkHref = {todo.img} /> */}
+									{/* <use xlinkHref = {track.img} /> */}
 								</S.TrackTitleSvg>
 							</S.TrackTitleImage>
 							<S.TrackTitleText>
-								<S.TrackTitleLink onClick={() => PlayTrack(todo)} href="http://">
-									{todo.name} <S.TrackTitleSpan >
-											{/* {todo.note} */}
+								<S.TrackTitleLink onClick={() => PlayTrack(track)} href="http://">
+									{track.name} <S.TrackTitleSpan >
+											{/* {track.note} */}
 										</S.TrackTitleSpan>
 										<S.TrackTitle/>
 								</S.TrackTitleLink>
@@ -127,19 +127,19 @@ export const TrackList = ({todos, addTodoError}) => {
 						</S.TrackTitle>
 						<S.TrackAuthor>
 							<S.TrackAuthorLink href="http://">
-								{todo.author}
+								{track.author}
 							</S.TrackAuthorLink>
 						</S.TrackAuthor>
 						<S.TrackAlbum>
 							<S.TrackAlbumLink href="http://">
-								{todo.genre}
+								{track.genre}
 							</S.TrackAlbumLink>
 						</S.TrackAlbum>
 						<S.TratrackTime>
 							<S.TratrackTimeSvg alt="time">
 								<use xlinkHref="img/icon/sprite.svg#icon-like" />
 							</S.TratrackTimeSvg>
-							<S.TratrackTimeText>{todo.duration_in_seconds}</S.TratrackTimeText>
+							<S.TratrackTimeText>{track.duration_in_seconds}</S.TratrackTimeText>
 						</S.TratrackTime>
 					</S.PlaylistTrack>
 				</S.PlaylistItem>
