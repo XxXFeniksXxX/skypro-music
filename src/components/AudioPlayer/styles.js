@@ -34,8 +34,9 @@ export const BarPlayer = styled.div`
 
 export const PlayerControls = styled.div`
 	display: flex;
+	gap: 12px;
 	flex-direction: row;
-	padding: 0 27px 0 31px;
+	padding: 0px 22px 0px 32px;
 `
 
 export const PlayerBtnPrev = styled.div`
@@ -112,6 +113,7 @@ export const TrackPlayContain = styled.div`
 	width: auto;
 	display: grid;
 	grid-template-columns: auto 1fr;
+	grid-template-columns: 69px;
 	grid-template-areas: 'image author''image album';
 	align-items: center;
 `
@@ -151,6 +153,9 @@ export const TrackPlayAuthorLink = styled.a`
 export const TrackPlayAlbum = styled.div`
 	grid-area: album;
 	min-width: 49px;
+	display: grid;
+    grid-template-columns: 250px;
+}
 `
 
 export const TrackPlayAlbumLink = styled.a`

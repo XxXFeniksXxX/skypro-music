@@ -159,7 +159,7 @@ export const TrackTitleText = styled.div`
 
 `
 
-export const TrackTitleLink = styled.a`
+export const TrackTitleLink = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -231,6 +231,15 @@ export const ContentPlaylist = styled.div`
 `
 
 export const Error = styled.div`
-    color: "red";
+    color: tomato;
+`
+export const AudioPlayerD = styled.div`
+    position: fixed;
+    left: 0px;
+    top: 92%;
+    width: 100%;
+    `
+export const AudioPlayerPlay = styled.div`
+    
 `
 

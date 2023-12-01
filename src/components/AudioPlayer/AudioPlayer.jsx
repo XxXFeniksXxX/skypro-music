@@ -2,13 +2,13 @@ import * as S from './styles.js'
 import { SkeletAudioPlayer } from '../SkeletAll/SkeletAudioPlayer'
 import React, { useState, useEffect } from 'react'
 
-export const AudioPlayer = ({ track }) => {
+export const AudioPlayer = ({ playingState }) => {
 	const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 5000)
+        }, 1000)
     }, [])
 
     if (loading) {
@@ -50,7 +50,7 @@ export const AudioPlayer = ({ track }) => {
 							</S.PlayerBtnShuffle>
 						</S.PlayerControls>
 						<S.PlayerTrackPlay>
-							<S.TrackPlayContain>
+							<S.TrackPlayContain >
 								<S.TrackPlayImage>
 									<S.TrackPlaySvg alt="music">
 										<use xlinkHref="img/icon/sprite.svg#icon-note" />
@@ -58,12 +58,12 @@ export const AudioPlayer = ({ track }) => {
 								</S.TrackPlayImage>
 								<S.TrackPlayAuthor>
 									<S.TrackPlayAuthorLink href="http://">
-									{track.track}
+									{playingState.name}
 									</S.TrackPlayAuthorLink>
 								</S.TrackPlayAuthor>
 								<S.TrackPlayAlbum>
 									<S.TrackPlayAlbumLink href="http://">
-									{track.executor}
+									{playingState.author}
 									</S.TrackPlayAlbumLink>
 								</S.TrackPlayAlbum>
 							</S.TrackPlayContain>

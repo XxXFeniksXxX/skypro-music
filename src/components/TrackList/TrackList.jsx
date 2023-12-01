@@ -4,10 +4,26 @@ import React, { useState, useEffect } from 'react'
 import { Skelet } from '../SkeletAll/SkeletTrack'
 import { FiltrExecutor, FiltrYear, FilterGenre } from '../Filtr/Filtr'
 import { AudioPlayer } from '../AudioPlayer/AudioPlayer.jsx';
-export const TrackList = ({tracks, addtrackError}) => {
+import { getTracks } from '../../Api.js';
+
+export const TrackList = () => {
+	const [tracks, setTracks] = useState([]);
+	const [addtrackError, setAddtrackError] = useState(null);
+		try{
+	useEffect(() => {
+		getTracks().then((tracks) => {
+			setTracks(tracks);
+			console.log(tracks);
+		}).catch((error) => {
+			setAddtrackError(("Ошибка сервера, попробуйте позже: ") + error.message);
+		 })
+	}, []);
+} catch (error){
+	
+}
 	const [playingState, setPlayingState] = useState(null);
 	const PlayTrack = (track) => {
-		setPlayingState = (track);
+		setPlayingState(track);
 	}
 	const style = {
 		color: '#ad61ff',
@@ -50,7 +66,7 @@ export const TrackList = ({tracks, addtrackError}) => {
 	useEffect(() => {
 		setTimeout(() => {
 			setLoading(false)
-		}, 10)
+		}, 1000)
 	}, [])
 
 	if (loading) {
@@ -58,93 +74,93 @@ export const TrackList = ({tracks, addtrackError}) => {
 			<Skelet />
 		)
 	}
-	
+
 	return (
-		
-		<S.MainCenterblock className="centerblock">
-			{playingState ? (<AudioPlayer track = {track} />) : null}
-			<Searchblock />
-			<S.CenterblockH2>Треки</S.CenterblockH2>
-			<S.CenterblockFilter className="filter">
-				<S.FilterTitle>Искать по:</S.FilterTitle>
-				<div>
-					<S.FilterButton className={`${isActiveExecutor ? {style} : ""}`} onClick={menuExecutorClick}>
-						исполнителю
-					</S.FilterButton>
-					{visibleExecutor && <div>
-						<FiltrExecutor />
+		<div className='rte'>
+			<S.MainCenterblock className="centerblock">
+				<Searchblock />
+				<S.CenterblockH2>Треки</S.CenterblockH2>
+				<S.CenterblockFilter className="filter">
+					<S.FilterTitle>Искать по:</S.FilterTitle>
+					<div>
+						<S.FilterButton className={`${isActiveExecutor ? {style} : ""}`} onClick={menuExecutorClick}>
+							исполнителю
+						</S.FilterButton>
+						{visibleExecutor && <div>
+							<FiltrExecutor />
+						</div>
+						}
 					</div>
-					}
-				</div>
-				<div>
-					<S.FilterButton className={`${isActiveYear ? "active" : ""}`} onClick={menyYearClick}>году выпуска
-					</S.FilterButton>
-					{visibleYear && <div>
-						<FiltrYear />
+					<div>
+						<S.FilterButton className={`${isActiveYear ? "active" : ""}`} onClick={menyYearClick}>году выпуска
+						</S.FilterButton>
+						{visibleYear && <div>
+							<FiltrYear />
+						</div>
+						}
 					</div>
-					}
-				</div>
-				<div>
-					<S.FilterButton className={`${isActiveGenre ? "active" : ""}`} onClick={menyGenreClick}> жанру
-					</S.FilterButton>
-					{visibleGenre && <div>
-						<FilterGenre />
+					<div>
+						<S.FilterButton className={`${isActiveGenre ? "active" : ""}`} onClick={menyGenreClick}> жанру
+						</S.FilterButton>
+						{visibleGenre && <div>
+							<FilterGenre />
+						</div>
+						}
 					</div>
-					}
-				</div>
-			</S.CenterblockFilter>
+				</S.CenterblockFilter>
 
-
-			<S.CenterblockContent>
-				<S.ContentTitle className="playlist-title">
-					<S.PlaylistTitleCol01 className="col01">Трек</S.PlaylistTitleCol01>
-					<S.PlaylistTitleCol02 className="col02">ИСПОЛНИТЕЛЬ</S.PlaylistTitleCol02>
-					<S.PlaylistTitleCol03 className="col03">АЛЬБОМ</S.PlaylistTitleCol03>
-					<S.PlaylistTitleCol04 className="col04">
-						<S.PlaylistTitleSvg alt="time">
-							<use xlinkHref="./img/icon/sprite.svg#icon-watch" />
-						</S.PlaylistTitleSvg>
-					</S.PlaylistTitleCol04>
-				</S.ContentTitle>
-					<S.Error>{addtrackError}</S.Error>
-				{tracks ?.map((track) => {
-					 return <S.PlaylistItem key={track.id}>
-					 <S.PlaylistTrack className="track">
-						<S.TrackTitle>
-							<S.TrackTitleImage>
-								<S.TrackTitleSvg alt="music">
-									{/* <use xlinkHref = {track.img} /> */}
-								</S.TrackTitleSvg>
-							</S.TrackTitleImage>
-							<S.TrackTitleText>
-								<S.TrackTitleLink onClick={() => PlayTrack(track)} href="http://">
-									{track.name} <S.TrackTitleSpan >
-											{/* {track.note} */}
-										</S.TrackTitleSpan>
-										<S.TrackTitle/>
-								</S.TrackTitleLink>
-							</S.TrackTitleText>
-						</S.TrackTitle>
-						<S.TrackAuthor>
-							<S.TrackAuthorLink href="http://">
-								{track.author}
-							</S.TrackAuthorLink>
-						</S.TrackAuthor>
-						<S.TrackAlbum>
-							<S.TrackAlbumLink href="http://">
-								{track.genre}
-							</S.TrackAlbumLink>
-						</S.TrackAlbum>
-						<S.TratrackTime>
-							<S.TratrackTimeSvg alt="time">
-								<use xlinkHref="img/icon/sprite.svg#icon-like" />
-							</S.TratrackTimeSvg>
-							<S.TratrackTimeText>{track.duration_in_seconds}</S.TratrackTimeText>
-						</S.TratrackTime>
-					</S.PlaylistTrack>
-				</S.PlaylistItem>
-				})}
-			</S.CenterblockContent>
-		</S.MainCenterblock>
+						
+				<S.CenterblockContent>
+					<S.ContentTitle className="playlist-title">
+						<S.PlaylistTitleCol01 className="col01">Трек</S.PlaylistTitleCol01>
+						<S.PlaylistTitleCol02 className="col02">ИСПОЛНИТЕЛЬ</S.PlaylistTitleCol02>
+						<S.PlaylistTitleCol03 className="col03">АЛЬБОМ</S.PlaylistTitleCol03>
+						<S.PlaylistTitleCol04 className="col04">
+							<S.PlaylistTitleSvg alt="time">
+								<use xlinkHref="./img/icon/sprite.svg#icon-watch" />
+							</S.PlaylistTitleSvg>
+						</S.PlaylistTitleCol04>
+					</S.ContentTitle>
+						<S.Error>{addtrackError}</S.Error>
+					{tracks ?.map((track) => {
+						return <S.PlaylistItem key={track.id}>
+						<S.PlaylistTrack className="track">
+							<S.TrackTitle>
+								<S.TrackTitleImage>
+									<S.TrackTitleSvg alt="music">
+										<use xlinkHref = "img/icon/sprite.svg#icon-note" />
+									</S.TrackTitleSvg>
+								</S.TrackTitleImage>
+								<S.TrackTitleText>
+									<S.TrackTitleLink onClick={() => PlayTrack(track)}>
+										{track.name}
+									</S.TrackTitleLink>
+								</S.TrackTitleText>
+							</S.TrackTitle>
+							<S.TrackAuthor>
+								<S.TrackAuthorLink href="http://">
+									{track.author}
+								</S.TrackAuthorLink>
+							</S.TrackAuthor>
+							<S.TrackAlbum>
+								<S.TrackAlbumLink href="http://">
+									{track.genre}
+								</S.TrackAlbumLink>
+							</S.TrackAlbum>
+							<S.TratrackTime>
+								<S.TratrackTimeSvg alt="time">
+									<use xlinkHref="img/icon/sprite.svg#icon-like" />
+								</S.TratrackTimeSvg>
+								<S.TratrackTimeText>{((track.duration_in_seconds)/60).toFixed(2)}</S.TratrackTimeText>
+							</S.TratrackTime>
+						</S.PlaylistTrack>
+					</S.PlaylistItem>
+					})}
+				</S.CenterblockContent>
+			</S.MainCenterblock>
+				<S.AudioPlayerD className='dcc'>
+					{playingState ? (<AudioPlayer tracks={tracks} playingState={playingState}/>) : null}
+				</S.AudioPlayerD>
+		</div>
 	)
 }

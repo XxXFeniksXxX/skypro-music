@@ -5,8 +5,8 @@ export async function getTracks(){
 });
 const data = await response.json();
 
-if(!response.ok){
-    throw new Error("Ошибка сервера")
+if (!response.ok){
+    throw new Error("Ошибка сервера");
 }
 return data;
 }

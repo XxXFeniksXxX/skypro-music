@@ -1,9 +1,8 @@
 import * as S from './App.style.js'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GlobalStyle } from './App.style.js';
 import { AppRoutes } from './routes.jsx';
 import { Autorisation } from './components/Boolean/Autorisation.jsx';
-import { getTracks } from './Api.js';
 export const App = () => {
 		const [user, setUser] = useState(null);
 	  
@@ -11,18 +10,6 @@ export const App = () => {
 	  
 		const handleLogout = () => setUser(null);
 
-		const [tracks, setTracks] = useState([]);
-		const [addtrackError, setAddtrackError] = useState(null);
-		try{
-	useEffect(() => {
-		getTracks().then((tracks) => {
-			setTracks(tracks.track);
-			console.log(tracks);
-		});
-	}, []);
-} catch (error){
-	setAddtrackError(error.message);
-}
 	return (
 		<S.Wrapper>
 			<GlobalStyle />
@@ -30,7 +17,7 @@ export const App = () => {
           user={user}
           onAuthButtonClick={user ? handleLogout : handleLogin}
         />
-			<AppRoutes user={user} tracks={tracks} addtrackError = {addtrackError}/>
+			<AppRoutes user={user} />
 		</S.Wrapper>
 	);
 }
