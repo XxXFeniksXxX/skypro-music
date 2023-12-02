@@ -1,4 +1,4 @@
-import { SkeletIcon } from '../SkeletAll/SkeletIcon'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import React, { useState, useEffect } from 'react'
 import * as S from './styles.js'
 import { NavLink } from "react-router-dom";
@@ -28,13 +28,9 @@ export const SideBar = () => {
         }, 1000)
     }, [])
 
-    if (loading) {
-		return(
-			<SkeletIcon />
-		)
-	}
 	return (
 		<S.MainSidebar className="sidebar">
+			<SkeletonTheme baseColor='#474747' highlightColor='#313131'>
 			<S.SidebarPersonal>
 				<S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
 				<S.SidebarIcon>
@@ -48,15 +44,17 @@ export const SideBar = () => {
 				{Favorites.map((Favorit) => (
 					<S.SidebarItem key={Favorit.id}>
 						<NavLink to={`/FavoritesPage/${Favorit.id}`}>
+						{loading ? (<Skeleton width={250} height={150} />) :
 							<S.SidebarImg 
 								src={Favorit.src}
 								alt={Favorit.alt}
-							/>
+							/>}
 						</NavLink>
 					</S.SidebarItem>
 				))}
 				</S.SidebarList>
 			</S.SidebarBlock>
+			</SkeletonTheme>
 		</S.MainSidebar>
 	)
 }

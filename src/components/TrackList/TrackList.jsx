@@ -1,7 +1,7 @@
 import { Searchblock } from '../Searchblock/Searchblock';
 import * as S from './styles.js';
 import React, { useState, useEffect } from 'react'
-import { Skelet } from '../SkeletAll/SkeletTrack'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { FiltrExecutor, FiltrYear, FilterGenre } from '../Filtr/Filtr'
 import { AudioPlayer } from '../AudioPlayer/AudioPlayer.jsx';
 import { getTracks } from '../../Api.js';
@@ -9,7 +9,6 @@ import { getTracks } from '../../Api.js';
 export const TrackList = () => {
 	const [tracks, setTracks] = useState([]);
 	const [addtrackError, setAddtrackError] = useState(null);
-		try{
 	useEffect(() => {
 		getTracks().then((tracks) => {
 			setTracks(tracks);
@@ -18,9 +17,6 @@ export const TrackList = () => {
 			setAddtrackError(("Ошибка сервера, попробуйте позже: ") + error.message);
 		 })
 	}, []);
-} catch (error){
-	
-}
 	const [playingState, setPlayingState] = useState(null);
 	const PlayTrack = (track) => {
 		setPlayingState(track);
@@ -69,12 +65,6 @@ export const TrackList = () => {
 		}, 1000)
 	}, [])
 
-	if (loading) {
-		return (
-			<Skelet />
-		)
-	}
-
 	return (
 		<div className='rte'>
 			<S.MainCenterblock className="centerblock">
@@ -122,30 +112,35 @@ export const TrackList = () => {
 						</S.PlaylistTitleCol04>
 					</S.ContentTitle>
 						<S.Error>{addtrackError}</S.Error>
+						<SkeletonTheme baseColor='#474747' highlightColor='#313131'>
 					{tracks ?.map((track) => {
 						return <S.PlaylistItem key={track.id}>
 						<S.PlaylistTrack className="track">
 							<S.TrackTitle>
 								<S.TrackTitleImage>
+								{loading ? (<Skeleton width={50} height={50} />) :
 									<S.TrackTitleSvg alt="music">
 										<use xlinkHref = "img/icon/sprite.svg#icon-note" />
-									</S.TrackTitleSvg>
+									</S.TrackTitleSvg>}
 								</S.TrackTitleImage>
 								<S.TrackTitleText>
+								{loading ? (<Skeleton width={330} height={20} />) :
 									<S.TrackTitleLink onClick={() => PlayTrack(track)}>
 										{track.name}
-									</S.TrackTitleLink>
+									</S.TrackTitleLink>}
 								</S.TrackTitleText>
 							</S.TrackTitle>
 							<S.TrackAuthor>
+							{loading ? (<Skeleton width={280} height={20} />) :
 								<S.TrackAuthorLink href="http://">
 									{track.author}
-								</S.TrackAuthorLink>
+								</S.TrackAuthorLink>}
 							</S.TrackAuthor>
 							<S.TrackAlbum>
+							{loading ? (<Skeleton width={290} height={20} />) :
 								<S.TrackAlbumLink href="http://">
 									{track.genre}
-								</S.TrackAlbumLink>
+								</S.TrackAlbumLink>}
 							</S.TrackAlbum>
 							<S.TratrackTime>
 								<S.TratrackTimeSvg alt="time">
@@ -156,6 +151,7 @@ export const TrackList = () => {
 						</S.PlaylistTrack>
 					</S.PlaylistItem>
 					})}
+					</SkeletonTheme>
 				</S.CenterblockContent>
 			</S.MainCenterblock>
 				<S.AudioPlayerD className='dcc'>

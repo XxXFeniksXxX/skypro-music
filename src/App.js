@@ -7,7 +7,6 @@ export const App = () => {
 		const [user, setUser] = useState(null);
 	  
 		const handleLogin = () => setUser({ login: "taradam" });
-	  
 		const handleLogout = () => setUser(null);
 
 	return (
