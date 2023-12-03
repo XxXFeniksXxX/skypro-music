@@ -72,7 +72,7 @@ export const SearchTextPassword = styled.input`
 export const Button = styled.button`
 
 `
-export const LinkElementButton = styled(NavLink)`
+export const LinkElementButton = styled.button`
     
 
     margin-left: 41px;
@@ -117,4 +117,13 @@ export const LinkElement = styled(NavLink)`
     font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.054px;
+`
+
+export const Error = styled.div`
+    padding-left: 23px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    background: #3F007D;
 `

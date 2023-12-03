@@ -97,3 +97,12 @@ export const LinkElementButton = styled(NavLink)`
     line-height: 24px; 
 
 `
+
+export const Error = styled.div`
+    padding-left: 23px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    background: #3F007D;
+`
