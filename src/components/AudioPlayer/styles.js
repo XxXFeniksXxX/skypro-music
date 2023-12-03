@@ -61,6 +61,11 @@ export const PlayerBtnPlaySvg = styled.svg`
 	width: 22px;
 	height: 20px;
 	fill: #d9d9d9;
+` 
+export const PlayerBtnPlayimg = styled.img`
+	width: 22px;
+	height: 20px;
+	fill: #d9d9d9;
 `
 
 export const PlayerBtnNext = styled.div`
@@ -222,3 +227,8 @@ export const VolumeProgress = styled.div`
 export const VolumeProgressLine = styled.input`
 	width: 109px;
 `
+
+export const AudioInvis = styled.div`
+	display: none;
+`
+

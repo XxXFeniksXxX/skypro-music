@@ -34,6 +34,7 @@ export const SignUp = () => {
     registerUser({ email, password })({
       email: email,
       password: password,
+      
     })
   }catch (error) {
     setRegError(error.message)

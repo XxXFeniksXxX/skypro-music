@@ -21,6 +21,7 @@ export const LogIn = () => {
       await loginUser({ email, password })({
         email: email,
         password: password,
+        userName: email,
             }) 
           }catch (error) {
       setLoginError(error.message)
@@ -55,7 +56,7 @@ export const LogIn = () => {
             }}
           />
           {loginError ? <S.Error>{loginError}</S.Error> :
-          <S.LinkElementButton  onClick={handleLogin}>Войти</S.LinkElementButton>}
+          <S.LinkElementButton  /*onClick={handleLogin}*/ to="/">Войти</S.LinkElementButton>}
           <S.LinkElement to="/register">
             Перейти к регистрации
           </S.LinkElement>

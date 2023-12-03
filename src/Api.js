@@ -55,6 +55,7 @@ export async function registerUser({ email, password }) {
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;"),
+        username: email,
       }),
       headers: {
         'content-type': 'application/json',

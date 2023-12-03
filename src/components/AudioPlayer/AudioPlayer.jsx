@@ -10,18 +10,18 @@ export const AudioPlayer = ({ playingState }) => {
 	// 			console.log(tracks);
 	// 		})
 	// 	}, []);
-
-
-
+	const [active, setActive] = useState(false);
 	const iconRef = useRef(null);
-	useEffect(() => {
-		console.log(iconRef);
-	});
 	const PlayKlick = () => {
+		iconRef.current.pause();
+		setActive(false);
+	}
+	const PlayKlickTwo = () => {
 		iconRef.current.play();
+		setActive(true);
 	}
 
-	const [loading, setLoading] = useState(true)
+	const [loading, setLoading] = useState(true);
 	useEffect(() => {
 		setTimeout(() => {
 			setLoading(false)
@@ -32,21 +32,27 @@ export const AudioPlayer = ({ playingState }) => {
 		<S.Bar>
 			<S.BarContent>
 				<S.BarPlayerProgress />
-				<S.BarPlayerBlock><audio controls src="../../audio/IMG_0593.mp3">
+				<S.BarPlayerBlock>
+					<S.AudioInvis>
+					<audio controls src="../../audio/IMG_0593.mp3" ref={iconRef}>
 					<a href="/media/cc0-audio/t-rex-roar.mp3"> Download audio </a>
-				</audio>
+					</audio>
+					</S.AudioInvis>
 					<S.BarPlayer>
 						<S.PlayerControls>
 							<S.PlayerBtnPrev>
-
-								<S.PlayerBtnPrevSvg alt="prev">
+								<S.PlayerBtnPrevSvg alt="prev" >
 									<use xlinkHref="img/icon/sprite.svg#icon-prev" />
 								</S.PlayerBtnPrevSvg>
 							</S.PlayerBtnPrev>
-							<S.PlayerBtnPlay className="_btn" ref={iconRef}>
-								<S.PlayerBtnPlaySvg alt="play">
-									<use xlinkHref="img/icon/sprite.svg#icon-play" />
-								</S.PlayerBtnPlaySvg>
+							<S.PlayerBtnPlay className="_btn">
+								{active ? 
+								<S.PlayerBtnPlayimg src= "../../img/icon/pause.svg" alt="play" onClick={PlayKlick}>
+									
+								</S.PlayerBtnPlayimg> : 
+								<S.PlayerBtnPlaySvg alt="play" onClick={PlayKlickTwo}>
+									<use xlinkHref="img/icon/sprite.svg#icon-play"/>
+								</S.PlayerBtnPlaySvg>}
 							</S.PlayerBtnPlay>
 							<S.PlayerBtnNext>
 								<S.PlayerBtnNextSvg alt="next">
