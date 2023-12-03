@@ -68,15 +68,16 @@ export const AudioPlayer = ({ playingState }) => {
 							<S.PlayerTrackPlay>
 								<S.TrackPlayContain >
 									<S.TrackPlayImage>
-										{loading ? (<Skeleton width={50} height={50} />) : (<S.TrackPlaySvg alt="music">
+										{loading ? (<Skeleton width={50} height={50} />) : 
+										(<S.TrackPlaySvg alt="music">
 											<use xlinkHref="img/icon/sprite.svg#icon-note" />
 										</S.TrackPlaySvg>)}
 									</S.TrackPlayImage>
 									<S.TrackPlayAuthor>
 										{loading ? (<Skeleton width={50} height={20} />) :
-											<S.TrackPlayAuthorLink href="http://">
+											(<S.TrackPlayAuthorLink href="http://">
 												{playingState.name}
-											</S.TrackPlayAuthorLink>}
+											</S.TrackPlayAuthorLink>)}
 									</S.TrackPlayAuthor>
 									<S.TrackPlayAlbum>
 										{loading ? (<Skeleton width={50} height={20} />) :

@@ -72,7 +72,7 @@ export const SearchTextPassword = styled.input`
 export const Button = styled.button`
 
 `
-export const LinkElementButton = styled(NavLink)`
+export const LinkElementButton = styled.div`
 
     margin-left: 41px;
     margin-top: 60px;
