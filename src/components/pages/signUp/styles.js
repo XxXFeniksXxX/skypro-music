@@ -73,10 +73,9 @@ export const Button = styled.button`
 
 `
 export const LinkElementButton = styled(NavLink)`
-    
 
     margin-left: 41px;
-    margin-top: 53px;
+    margin-top: 60px;
     border-radius: 6px;
     background: var(--palette-purple-90, #580EA2);
     &:hover{
@@ -97,24 +96,4 @@ export const LinkElementButton = styled(NavLink)`
     font-weight: 400;
     line-height: 24px; 
 
-`
-
-export const LinkElement = styled(NavLink)`
-    margin-top: 10px;
-    margin-left: 41px;
-    width: 278px;
-    height: 52px;
-    border-radius: 6px;
-    border: 1px solid #D0CECE;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: #000;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: -0.054px;
 `

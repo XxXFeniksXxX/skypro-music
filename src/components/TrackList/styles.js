@@ -5,7 +5,9 @@ export const MainCenterblock = styled.div`
     flex-grow: 3;
     padding: 20px 40px 20px 111px;
 `
-
+export const red = styled.div`
+    color: red;
+`;
 export const CenterblockH2 = styled.h2`
     font-style: normal;
     font-weight: 400;
@@ -39,6 +41,18 @@ export const FilterButton = styled.div`
     border: 1px solid #ffffff;
     border-radius: 60px;
     padding: 6px 20px;  
+    cursor: pointer;
+
+    &:active{
+        border-color: #ad61ff;
+        color: #ad61ff;
+        cursor: pointer;
+    }
+
+    &:hover{
+        border-color: #ad61ff;
+        color: #ad61ff;
+    }
 `
 
 export const CenterblockContent = styled.div`
@@ -62,7 +76,6 @@ export const PlaylistTitleCol01 = styled.div`
     letter-spacing: 2px;
     color: #696969;
     text-transform: uppercase;
-
     width: 447px;
 `
 export const PlaylistTitleCol02 = styled.div`
@@ -73,7 +86,6 @@ export const PlaylistTitleCol02 = styled.div`
     letter-spacing: 2px;
     color: #696969;
     text-transform: uppercase;
-
     width: 321px;
 `
 export const PlaylistTitleCol03 = styled.div`
@@ -84,7 +96,6 @@ export const PlaylistTitleCol03 = styled.div`
     letter-spacing: 2px;
     color: #696969;
     text-transform: uppercase;
-
     width: 245px;
 `
 export const PlaylistTitleCol04 = styled.div`
@@ -148,7 +159,7 @@ export const TrackTitleText = styled.div`
 
 `
 
-export const TrackTitleLink = styled.a`
+export const TrackTitleLink = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -192,7 +203,9 @@ export const TrackAlbumLink = styled.a`
 `
 
 export const TratrackTime = styled.div`
-    
+    display: flex;
+    gap: 6px;
+    align-items: center;
 `
 
 export const TratrackTimeSvg = styled.svg`
@@ -218,3 +231,17 @@ export const ContentPlaylist = styled.div`
     flex-direction: column;
     overflow-y: auto;
 `
+
+export const Error = styled.div`
+    color: tomato;
+`
+export const AudioPlayerD = styled.div`
+    position: fixed;
+    left: 0px;
+    top: 92%;
+    width: 100%;
+    `
+export const AudioPlayerPlay = styled.div`
+    
+`
+

@@ -1,34 +1,49 @@
 import * as S from './styles.js'
-import { SkeletAudioPlayer } from '../SkeletAll/SkeletAudioPlayer'
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
+import { getTracksById } from '../../Api.js';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
-export function AudioPlayer() {
-	const [loading, setLoading] = useState(true)
+export const AudioPlayer = ({ playingState }) => {
+	// const [tracks, setTracks] = useState([]);
+	// 	useEffect(() => {
+	// 		getTracksById().then((tracks) => {
+	// 			console.log(tracks);
+	// 		})
+	// 	}, []);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 5000)
-    }, [])
 
-    if (loading) {
-		return(
-			<SkeletAudioPlayer />
-		)
+
+	const iconRef = useRef(null);
+	useEffect(() => {
+		console.log(iconRef);
+	});
+	const PlayKlick = () => {
+		iconRef.current.play();
 	}
+
+	const [loading, setLoading] = useState(true)
+	useEffect(() => {
+		setTimeout(() => {
+			setLoading(false)
+		}, 1000)
+	}, [])
+
 	return (
 		<S.Bar>
 			<S.BarContent>
 				<S.BarPlayerProgress />
-				<S.BarPlayerBlock>
+				<S.BarPlayerBlock><audio controls src="../../audio/IMG_0593.mp3">
+					<a href="/media/cc0-audio/t-rex-roar.mp3"> Download audio </a>
+				</audio>
 					<S.BarPlayer>
 						<S.PlayerControls>
 							<S.PlayerBtnPrev>
+
 								<S.PlayerBtnPrevSvg alt="prev">
 									<use xlinkHref="img/icon/sprite.svg#icon-prev" />
 								</S.PlayerBtnPrevSvg>
 							</S.PlayerBtnPrev>
-							<S.PlayerBtnPlay className="_btn">
+							<S.PlayerBtnPlay className="_btn" ref={iconRef}>
 								<S.PlayerBtnPlaySvg alt="play">
 									<use xlinkHref="img/icon/sprite.svg#icon-play" />
 								</S.PlayerBtnPlaySvg>
@@ -49,37 +64,41 @@ export function AudioPlayer() {
 								</S.PlayerBtnShuffleSvg>
 							</S.PlayerBtnShuffle>
 						</S.PlayerControls>
-						<S.PlayerTrackPlay>
-							<S.TrackPlayContain>
-								<S.TrackPlayImage>
-									<S.TrackPlaySvg alt="music">
-										<use xlinkHref="img/icon/sprite.svg#icon-note" />
-									</S.TrackPlaySvg>
-								</S.TrackPlayImage>
-								<S.TrackPlayAuthor>
-									<S.TrackPlayAuthorLink href="http://">
-										Ты та...
-									</S.TrackPlayAuthorLink>
-								</S.TrackPlayAuthor>
-								<S.TrackPlayAlbum>
-									<S.TrackPlayAlbumLink href="http://">
-										Баста
-									</S.TrackPlayAlbumLink>
-								</S.TrackPlayAlbum>
-							</S.TrackPlayContain>
-							<S.TrackPlayLikeDis>
-								<S.TrackPlayLike className="_btn-icon">
-									<S.TrackPlayLikeSvg alt="like">
-										<use xlinkHref="img/icon/sprite.svg#icon-like" />
-									</S.TrackPlayLikeSvg>
-								</S.TrackPlayLike>
-								<S.TrackPlayDislike className="_btn-icon">
-									<S.TrackPlayDislikeSvg alt="dislike">
-										<use xlinkHref="img/icon/sprite.svg#icon-dislike" />
-									</S.TrackPlayDislikeSvg>
-								</S.TrackPlayDislike>
-							</S.TrackPlayLikeDis>
-						</S.PlayerTrackPlay>
+						<SkeletonTheme baseColor='#474747' highlightColor='#313131'>
+							<S.PlayerTrackPlay>
+								<S.TrackPlayContain >
+									<S.TrackPlayImage>
+										{loading ? (<Skeleton width={50} height={50} />) : (<S.TrackPlaySvg alt="music">
+											<use xlinkHref="img/icon/sprite.svg#icon-note" />
+										</S.TrackPlaySvg>)}
+									</S.TrackPlayImage>
+									<S.TrackPlayAuthor>
+										{loading ? (<Skeleton width={50} height={20} />) :
+											<S.TrackPlayAuthorLink href="http://">
+												{playingState.name}
+											</S.TrackPlayAuthorLink>}
+									</S.TrackPlayAuthor>
+									<S.TrackPlayAlbum>
+										{loading ? (<Skeleton width={50} height={20} />) :
+											<S.TrackPlayAlbumLink href="http://">
+												{playingState.author}
+											</S.TrackPlayAlbumLink>}
+									</S.TrackPlayAlbum>
+								</S.TrackPlayContain>
+								<S.TrackPlayLikeDis>
+									<S.TrackPlayLike className="_btn-icon">
+										<S.TrackPlayLikeSvg alt="like">
+											<use xlinkHref="img/icon/sprite.svg#icon-like" />
+										</S.TrackPlayLikeSvg>
+									</S.TrackPlayLike>
+									<S.TrackPlayDislike className="_btn-icon">
+										<S.TrackPlayDislikeSvg alt="dislike">
+											<use xlinkHref="img/icon/sprite.svg#icon-dislike" />
+										</S.TrackPlayDislikeSvg>
+									</S.TrackPlayDislike>
+								</S.TrackPlayLikeDis>
+							</S.PlayerTrackPlay>
+						</SkeletonTheme>
 					</S.BarPlayer>
 					<S.BarVolumeBlock>
 						<S.VolumeContent>

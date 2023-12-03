@@ -1,18 +1,27 @@
 import * as S from './styles.js'
-import { NavLink } from 'react-router-dom';
-import cn from "classnames";
+
 export const LogIn = () => {
-  const activeClassName = "color:green";
-  const style = {
-    color: '#ffffff',
-  }
   return (
-    <S.Content>
-      <S.Title>Страница логина</S.Title>
-      <S.Button><NavLink to="/" >Вход</NavLink></S.Button>
-        <NavLink to="/register"  style={style}>
-          Перейти к регистрации 
-        </NavLink>
-    </S.Content>
+    <S.Page>
+      <S.Frame className='sfd'>
+        <S.FrameContent className='sfd'>
+          <S.Title><img src="../../img/logo_modal.png" alt="logo"></img></S.Title>
+          <S.SearchTextMail
+            type="search"
+            placeholder="Почта"
+            name="search"
+          />
+          <S.SearchTextPassword
+            type="search"
+            placeholder="Пароль"
+            name="search"
+          />
+          <S.LinkElementButton to="/" >Войти</S.LinkElementButton>
+          <S.LinkElement to="/register">
+            Перейти к регистрации
+          </S.LinkElement>
+        </S.FrameContent>
+      </S.Frame>
+    </S.Page>
   );
 }
