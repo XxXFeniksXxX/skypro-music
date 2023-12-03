@@ -6,17 +6,8 @@ import { FiltrExecutor, FiltrYear, FilterGenre } from '../Filtr/Filtr'
 import { AudioPlayer } from '../AudioPlayer/AudioPlayer.jsx';
 import { getTracks } from '../../Api.js';
 
-export const TrackList = () => {
-	const [tracks, setTracks] = useState([]);
-	const [addtrackError, setAddtrackError] = useState(null);
-	useEffect(() => {
-		getTracks().then((tracks) => {
-			setTracks(tracks);
-			console.log(tracks);
-		}).catch((error) => {
-			setAddtrackError(("Ошибка сервера, попробуйте позже: ") + error.message);
-		 })
-	}, []);
+export const TrackList = ({tracks, addtrackError}) => {
+	
 	const [playingState, setPlayingState] = useState(null);
 	const PlayTrack = (track) => {
 		setPlayingState(track);

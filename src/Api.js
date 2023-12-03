@@ -11,6 +11,7 @@ export async function getTracks() {
     return data;
 }
 
+
 // export async function getTracksById() {
 //     fetch("https://skypro-music-api.skyeng.tech/catalog/track/<id>", {
 //         method: "GET",

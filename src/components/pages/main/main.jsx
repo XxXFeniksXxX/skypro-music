@@ -3,12 +3,12 @@ import { Nav } from "../../Nav/Nav";
 import { TrackList } from "../../TrackList/TrackList";
 import { SideBar } from "../../SideBar/SideBar";
 
-export const MainContent = () => {
+export const MainContent = ({tracks, addtrackError}) => {
     return (
         <S.Container>
 				<S.Main>
 					<Nav />
-					<TrackList />
+					<TrackList tracks={tracks} addtrackError={addtrackError}/>
 					<SideBar />
 				</S.Main>
 				<S.Footer />
