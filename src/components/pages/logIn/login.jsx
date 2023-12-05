@@ -1,13 +1,13 @@
 import * as S from './styles.js'
 import React, { useState, useEffect } from 'react'
 
-export const LogIn = () => {
+export const LogIn = ({handleLogin}) => {
   const [loginError, setLoginError] = useState(null)
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleLoginPage = async () => {
     try {
       if (!email) {
         setLoginError('Введите email')
@@ -56,7 +56,7 @@ export const LogIn = () => {
             }}
           />
           {loginError ? <S.Error>{loginError}</S.Error> :
-          <S.LinkElementButton  /*onClick={handleLogin}*/ to="/">Войти</S.LinkElementButton>}
+          <S.LinkElementButton  onClick={handleLogin} to="/">Войти</S.LinkElementButton>}
           <S.LinkElement to="/register">
             Перейти к регистрации
           </S.LinkElement>

@@ -15,18 +15,23 @@ export const App = () => {
 			setAddtrackError(("Ошибка сервера, попробуйте позже: ") + error.message);
 		 })
 	}, []);
-		const [user, setUser] = useState(null);
-		const handleLogin = () => setUser({ login: "taradam" });
-		const handleLogout = () => setUser(null);
+		const [user, setUser] = useState(localStorage.getItem("user"));
+		const handleLogin = () => {
+			localStorage.setItem("user", "Egor")
+		setUser(localStorage.getItem("user"));
+		console.log(user);
+	}
+
+		const handleLogout = () => {
+			localStorage.removeItem("user")
+		setUser(false);
+		console.log(user);
+	}
 
 	return (
 		<S.Wrapper>
 			<GlobalStyle />
-			<Autorisation
-          user={user}
-          onAuthButtonClick={user ? handleLogout : handleLogin}
-        />
-			<AppRoutes tracks={tracks} addtrackError={addtrackError} user={user} />
+			<AppRoutes handleLogin={handleLogin} handleLogout={handleLogout} tracks={tracks} addtrackError={addtrackError} user={user} />
 		</S.Wrapper>
 	);
 }

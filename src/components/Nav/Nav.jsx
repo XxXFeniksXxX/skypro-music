@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import * as S from './styles.js'
 import { NavLink } from 'react-router-dom';
-export function Nav() {
+export function Nav({handleLogout}) {
 
 	const [visible, setVisible] = useState(false);
 
@@ -28,7 +28,7 @@ export function Nav() {
 						<S.LinkElement to="/category">Мой плейлист </S.LinkElement>
 						</S.MenuItem>
 						<S.MenuItem>
-							<S.MenuLink href="/">
+							<S.MenuLink href="/" onClick={handleLogout}>
 								Выйти
 							</S.MenuLink>
 						</S.MenuItem>

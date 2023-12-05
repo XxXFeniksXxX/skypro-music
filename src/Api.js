@@ -2,6 +2,7 @@ const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYW
 const baseHost = "https://skypro-music-api.skyeng.tech";
 export async function getTracks() {
     const response = await fetch(baseHost + "/catalog/track/all/", {
+      
     });
     const data = await response.json();
 
